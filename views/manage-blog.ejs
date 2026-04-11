@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/admin-header.ejs") %>
+
+    <nav class="admin-nav">
+    <a href="/admin/dashboard">dashboard</a>
+    <a href="/post/blog">post blog</a>
+    </nav>
+
+    <main class="admin-manage-blogs">
+        <h1>manage blogs</h1>
+
+        <form action="/choose/country" method="POST" onsubmit="disableSubmitButton()">
+            <select name="country">
+                <option value="<%= locals.blogs ? blogs[0].country : '' %>"><%= locals.blogs ? blogs[0].country : 'choose a country' %></option>
+                <option value="usa">usa</option>
+                <option value="uk">uk</option>
+            </select>
+
+            <select name="category">
+                <option value="<%= locals.blogs ? blogs[0].category : '' %>"><%= locals.blogs ? blogs[0].category : 'choose a category' %></option>
+                <option value="politics">politics</option>
+                <option value="finance">finance</option>
+            </select>
+
+            <button type="submit">see blogs</button>
+        </form>
+
+        <section class="blogs">
+            <% if (locals.blogs) {%>
+                <h2><%= blogs[0].country %> blogs</h2>
+                <h2><%= blogs[0].category %></h2>
+                <% blogs.forEach(blog => { %>
+                    <article>
+                        <h2><%= blog.title %></h2>
+                        <img src="<%= blog.image %>" />
+                        <span>posted by <%= blog.author %></span>
+                        <p><%= blog.content %></p>
+                    </article>
+
+                    <div class="action">
+                        <a href="/edit/blog/<%= blog.id %>">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+
+                        <form action="/delete/blog/<%= blog.id %>" method="POST" 
+                        onsubmit="return confirm('are you sure you want to continue?')">
+                        <button type="submit"><i class="fa-solid fa-xmark"></i></button>
+                    </form>
+                    </div>
+                <% }) %>
+            <% } %>
+            
+            <% if (locals.message) {%>
+                <p class="message"><%= message %></p>
+            <% } %>
+        </section>
+
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

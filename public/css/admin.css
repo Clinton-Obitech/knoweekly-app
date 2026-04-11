@@ -1,0 +1,265 @@
+main.admin-home {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin-home nav {
+    padding: 1rem;
+    margin: 0 2rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.admin-home nav a {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+main.admin-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main.admin-auth form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 2rem;
+    padding: 2rem;
+    border: 1.5px solid black;
+    border-radius: 5px;
+}
+
+.admin-auth form input {
+    padding: 0.6rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.admin-auth form button {
+    align-self: flex-end;
+    padding: 0.5rem;
+    width: 40%;
+}
+
+.admin-auth form input::placeholder {
+    color: whitesmoke;
+    text-transform: capitalize;
+}
+
+.admin-auth p.message {
+    text-align: center;
+}
+
+main.admin-dashboard h1 {
+    margin: 0;
+}
+
+main.admin-dashboard .top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+.admin-dashboard .top form {
+    justify-self: end;
+}
+
+.admin-dashboard .top h2 {
+    padding-left: 1rem;
+}
+
+.admin-dashboard .top form button {
+    padding: 0.3rem 1.5rem;
+}
+
+.admin-dashboard nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.admin-dashboard nav a {
+    padding: 1rem;
+    text-transform: capitalize;
+}
+
+main.admin-post-blog {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin-post-blog form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 2rem;
+}
+
+.admin-post-blog select {
+    width: 60%;
+    padding: 0.5rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+}
+
+.admin-post-blog select option {
+    background-color: white;
+    color: black;
+    text-transform: uppercase;
+} 
+
+.admin-post-blog input {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+.admin-post-blog textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    height: 200px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+}
+
+.admin-post-blog input:focus, .admin-post-blog textarea:focus, .admin-post-blog select:focus {
+    outline: 3px solid teal;
+}
+
+.admin-post-blog button {
+    align-items: flex-start;
+    width: 50%;
+    padding: 0.5rem;
+}
+
+main.admin-manage-blogs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main.admin-manage-blogs > form {
+    border: 1.5px solid black;
+    margin: 0 1rem;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+main.admin-manage-blogs > form button {
+    padding: 0.3rem 1rem;
+    font-size: 1rem;
+}
+
+main.admin-manage-blogs form select {
+    padding: 0.3rem 0.5rem;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+main.admin-manage-blogs article {
+    box-shadow: 0px 0px 3px black;
+    border-radius: 5px;
+}
+
+.admin-manage-blogs .blogs {
+    padding: 0 1rem 1rem;
+}
+
+.admin-manage-blogs .blogs > h2 {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.admin-manage-blogs article img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.admin-manage-blogs article h2 {
+    text-transform: capitalize;
+    padding: 0.2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.admin-manage-blogs article p {
+    padding: 0.3rem;
+    text-transform: lowercase;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.admin-manage-blogs article span {
+    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+    margin: 0.1rem 0;
+    display: inline-block;
+}
+
+.admin-manage-blogs .action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.2rem;
+}
+
+.admin-manage-blogs .action > a {
+    border: none;
+    background-color: none;
+    box-shadow: none;
+}
+
+.admin-manage-blogs .action i {
+    font-size: 2rem;
+}
+
+.admin-manage-blogs .action form button {
+    border: none;
+    background-color: white;
+    box-shadow: none;
+    color: black;
+}
+
+nav.admin-nav {
+    display: flex;
+    padding: 1rem 1rem 0;
+    gap: 1rem;
+}
+
+nav.admin-nav a {
+    padding: 0.3rem 1rem;
+}

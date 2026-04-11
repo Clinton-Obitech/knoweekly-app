@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/header.ejs") %>
+
+    <main class="public-blogs usa">
+        <h1>united state of america</h1>
+
+        <nav>
+            <a href="/">home</a>
+            <a href="/usa/blog/all">all</a>
+            <a href="/usa/blog/politics">politics</a>
+            <a href="/usa/blog/finance">finance</a>
+            <a href="/usa/blog/health">health</a>
+            <a href="/usa/blog/education">education</a>
+            <a href="/usa/blog/sports">sports</a>
+        </nav>
+
+        <section>
+            <% if (locals.blogs.length > 0) {%>
+                <h2><%= !locals.all ? blogs[0].category : "All"%></h2>
+                <% blogs.forEach(blog => { %>
+                    <h2><%= locals.all ? blog.category : null%></h2>
+                    <article>
+                        <h2><%= blog.title %></h2>
+                        <img src="/" />
+                        <span>posted by <%= blog.author %></span>
+                        <p><%= blog.content %></p>
+                        <button>
+                            continue reading
+                        </button>
+                    </article>
+              <%  }) %>
+            <% } else { %>
+                <p class="not-found">no post found</p>
+                <% } %>
+        </section>
+
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

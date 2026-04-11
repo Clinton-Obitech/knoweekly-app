@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/admin-header.ejs") %>
+    <main class="admin-auth">
+        <h1>admin login</h1>
+
+        <form action="/login/admin" method="POST" onsubmit="disableSubmitButton()">
+
+            <input type="text" name="username" placeholder="username" />
+            <input type="password" name="password" placeholder="password" />
+
+            <button type="submit">login</button>
+
+        </form>
+
+        <% if (locals.message) {%>
+            <p class="message"><%= message %></p>
+        <% } %>
+    </main>
+
+    <%- include("partials/footer.ejs") %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

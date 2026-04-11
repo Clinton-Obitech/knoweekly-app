@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/admin-header.ejs") %>
+
+    <nav class="admin-nav">
+    <a href="/admin/dashboard">dashboard</a>
+    <a href="/manage/blog">manage blog</a>
+    </nav>
+
+    <main class="admin-post-blog">
+        <h1><%= editBlog ? "update blog" : "post blogs" %></h1>
+
+        <form action="<%= editBlog ? '/update/'+ editBlog.id +'/blog' : '/post/blog' %>"  
+            method="POST"
+            enctype="multipart/form-data"
+            onsubmit="disableSubmitButton()"
+            >
+            <select name="country">
+                <option value="<%= editBlog ? editBlog.country : "" %>">
+                    <%= editBlog ? editBlog.country : "choose country" %>
+                </option>
+                <option value="usa">usa</option>
+                <option value="uk">uk</option>
+            </select>
+
+            <select name="category">
+                <option value="<%= editBlog ? editBlog.category : "" %>">
+                    <%= editBlog ? editBlog.category : "choose category" %>
+                </option>
+                <option value="politics">politics</option>
+                <option value="finance">finance</option>
+            </select>
+
+            <input type="text" 
+            name="title" 
+            placeholder="title"
+            value="<%= editBlog ? editBlog.title : "" %>"
+            />
+
+            <input type="file" name="image" accept="image/*" />
+
+            <textarea 
+            name="content"
+            ><%= editBlog ? editBlog.content : "" %>
+            </textarea>
+
+            <button type="submit"><%= editBlog ? "update" : "post" %></button>
+        </form>
+
+        <% if (locals.message) {%>
+            <p class="message"><%= message %></p>
+        <% } %>
+
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

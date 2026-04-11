@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/admin-header.ejs") %>
+    <main class="admin-dashboard">
+        <section class="top">
+            <h1>dashboard</h1>
+            <form action="/logout/admin" method="POST">
+                <button type="submit">logout</button>
+            </form>
+            <h2>welcome <%= username %></h2>
+        </section>
+
+        <nav>
+            <a href="/post/blog">post blogs</a>
+            <a href="/manage/blog">manage blogs</a>
+        </nav>
+
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>
