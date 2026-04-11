@@ -166,13 +166,13 @@ main.admin-manage-blogs > form {
     padding: 0.5rem;
     border-radius: 5px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
 }
 
 main.admin-manage-blogs > form button {
     padding: 0.3rem 1rem;
-    font-size: 1rem;
+    grid-column: span 2;
 }
 
 main.admin-manage-blogs form select {
@@ -181,7 +181,6 @@ main.admin-manage-blogs form select {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 5px;
     color: white;
-    font-size: 1rem;
 }
 
 main.admin-manage-blogs article {

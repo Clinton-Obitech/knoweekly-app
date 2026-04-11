@@ -229,7 +229,7 @@ export const updateBlog = async (req, res) => {
             {
                 country: country,
                 category: category,
-                title: category,
+                title: title,
                 image: image_Url,
                 content: content
             }
