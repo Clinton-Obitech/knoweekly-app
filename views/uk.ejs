@@ -23,7 +23,7 @@
                     <h2><%= locals.all ? blog.category : null%></h2>
                     <article>
                         <h2><%= blog.title %></h2>
-                        <img src="/" />
+                        <img src="<%= blog.image %>" />
                         <span>posted by <%= blog.author %></span>
                         <p><%= blog.content %></p>
                         <button>
