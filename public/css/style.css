@@ -11,15 +11,16 @@ a {
     border: 1.5px solid rgba(0, 0, 0, 0.8);
     border-radius: 5px;
     text-transform: capitalize;
-    color: black;
+    color: rgba(0, 100, 150);
 }
 
 button {
     border: none;
-    background-color: rgba(0, 100, 150);
+    background-color: rgba(0, 100, 150, 0.4);
     border-radius: 3px;
-    color: white;
+    color: black;
     text-transform: capitalize;
+    border: 1.5px solid black;
 }
 
 button:active {
@@ -32,7 +33,7 @@ button:disabled {
 
 header i {
     font-size: 1.3rem;
-    color: rgba(0, 0, 0, 0.9);
+    color: white;
 }
 
 header.public {
@@ -43,8 +44,10 @@ header {
     padding: 0.8rem;
     display: flex;
     align-items: center;
-    color: rgba(0, 0, 0, 0.9);
-    background-color: rgba(0, 100, 150, 0.3);
+    color: whitesmoke;
+    background-color: rgba(0, 100, 150);
+    margin: 0.5rem;
+    border-radius: 4px;
     gap: 0.5rem;
 }
 
@@ -57,7 +60,7 @@ h1 {
     text-transform: capitalize;
     padding: 1rem 1rem 0;
     font-family: serif;
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(0, 100, 150);
 }
 
 main.home h1 {
@@ -117,7 +120,7 @@ p.message {
 
 .public-blogs article {
     border-width: 1.5px 0 1.5px;
-    border-color: black;
+    border-color:  black;
     border-style: solid;
     border-radius: 10px;
     display: flex;
@@ -136,6 +139,7 @@ p.message {
     padding: 0 2rem 0;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
+    color:  rgba(0, 100, 150);
 }
 
 .public-blogs article span {
@@ -144,6 +148,12 @@ p.message {
     text-transform: capitalize;
     border-radius: 3px;
     padding-top: 0.5rem;
+}
+
+.public-blogs article span.date {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
 }
 
 .public-blogs article img {
@@ -181,4 +191,22 @@ p.message {
 
 .public-blogs nav a {
     padding: 0.3rem 1rem;
+}
+
+#dateForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#dateForm input {
+    padding: 0.4rem 1rem;
+    box-shadow: 0px 0px 2px black;
+    border-radius: 5px;
+    border: none;
+}
+
+#dateForm button {
+    padding: 0 2rem;
 }

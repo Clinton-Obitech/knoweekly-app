@@ -1,5 +1,5 @@
 import { getAdmin } from "../lib/admin.js";
-import { getUSABlogs, getUKBlogs, queryUSABlogs, queryUKBlogs } from "../lib/blogs.js";
+import { queryUSABlogs, queryUKBlogs } from "../lib/blogs.js";
 import pool from "../lib/db.js";
 import supabase from "../lib/supabase.js";
 
@@ -72,44 +72,34 @@ export const EditBlog = async (req, res) => {
 
 export const USblog = async (req, res) => {
 
+    const today = new Date().toISOString().split("T")[0];
+
+    const date = req.query.date || today;
+
     const category = req.params.category;
 
-    if (category === "all") {
-    const usaBlogs = await getUSABlogs();
+    const usaBlogs = await queryUSABlogs(category, date);
 
     res.render("usa.ejs", {
         blogs: usaBlogs,
-        all: "all"
+        date: req.query.date
     });
-
-    } else {
-        const usaBlogs = await queryUSABlogs(category);
-
-    res.render("usa.ejs", {
-        blogs: usaBlogs,
-        all: null
-    });
-    }
+    
 }
 
 export const UKblog = async (req, res) => {
 
+    const today = new Date().toISOString().split("T")[0];
+
+    const date = req.query.date || today;
+
     const category = req.params.category;
 
-    if (category === "all") {
-      const ukBlogs = await getUKBlogs();
+    const ukBlogs = await queryUKBlogs(category, date);
 
     res.render("uk.ejs", {
         blogs: ukBlogs,
-        all: "all"
+        date: req.query.date
     });
-
-    } else {
-        const ukBlogs = await queryUKBlogs(category);
-
-    res.render("uk.ejs", {
-        blogs: ukBlogs,
-        all: null
-    });
-    }
+    
 }

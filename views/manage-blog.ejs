@@ -25,6 +25,8 @@
                 <option value="finance">finance</option>
             </select>
 
+            <input type="date" id="manageDate" name="date" />
+
             <button type="submit">see blogs</button>
         </form>
 
@@ -33,6 +35,7 @@
                 <h2><%= blogs[0].country %> blogs</h2>
                 <h2><%= blogs[0].category %></h2>
                 <% blogs.forEach(blog => { %>
+
                     <article>
                         <h2><%= blog.title %></h2>
                         <img src="<%= blog.image %>" />
@@ -48,8 +51,9 @@
                         <form action="/delete/blog/<%= blog.id %>" method="POST" 
                         onsubmit="return confirm('are you sure you want to continue?')">
                         <button type="submit"><i class="fa-solid fa-xmark"></i></button>
-                    </form>
+                        </form>
                     </div>
+
                 <% }) %>
             <% } %>
             

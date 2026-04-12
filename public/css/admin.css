@@ -84,6 +84,7 @@ main.admin-dashboard .top {
 
 .admin-dashboard .top h2 {
     padding-left: 1rem;
+    white-space: nowrap;
 }
 
 .admin-dashboard .top form button {
@@ -189,9 +190,18 @@ main.admin-manage-blogs form select {
     text-transform: capitalize;
 }
 
+.admin-manage-blogs form input {
+    border: none;
+    box-shadow: 0px 0px 2px black;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 0 1rem;
+}
+
 main.admin-manage-blogs article {
     box-shadow: 0px 0px 3px black;
     border-radius: 5px;
+    min-width: 300px;
 }
 
 .admin-manage-blogs .blogs {

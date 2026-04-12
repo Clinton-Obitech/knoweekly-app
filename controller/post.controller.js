@@ -284,7 +284,7 @@ export const deleteBlog = async (req, res) => {
 
 export const chooseCountry = async (req, res) => {
 
-    const { country, category } = req.body;
+    const { country, category, date } = req.body;
 
     try {
 
@@ -292,7 +292,8 @@ export const chooseCountry = async (req, res) => {
         .from("blogs")
         .select("*")
         .eq("country", country)
-        .eq("category", category);
+        .eq("category", category)
+        .eq("date", date);
 
         if (error) throw error
 

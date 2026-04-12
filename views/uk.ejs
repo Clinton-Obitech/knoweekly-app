@@ -8,7 +8,6 @@
 
         <nav>
             <a href="/">home</a>
-            <a href="/uk/blog/all">all</a>
             <a href="/uk/blog/politics">politics</a>
             <a href="/uk/blog/finance">finance</a>
             <a href="/uk/blog/health">health</a>
@@ -16,12 +15,24 @@
             <a href="/uk/blog/sports">sports</a>
         </nav>
 
+        <form id="dateForm" action="<%= locals.blogs.length > 0 ? '/usa/blog/' + locals.blogs[0].category : ''%>" method="GET">
+            <input type="date" id="date" name="date" 
+            value="<%= locals.blogs.length > 0 ? locals.blogs[0].date : locals.date  %>" />
+
+            <button type="submit">Go</button>
+        </form>
+
         <section class="blogs">
             <% if (locals.blogs.length > 0) {%>
                 <h2><%= !locals.all ? blogs[0].category : "All"%></h2>
                 <% blogs.forEach(blog => { %>
                     <h2><%= locals.all ? blog.category : null%></h2>
                     <article>
+                        <span class="date"><%= new Date(blog.date).toLocaleDateString('en-GB', { 
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        }) %></span>
                         <h2><%= blog.title %></h2>
                         <img src="<%= blog.image %>" />
                         <span>posted by <%= blog.author %></span>
