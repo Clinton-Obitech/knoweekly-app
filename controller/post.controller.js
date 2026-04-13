@@ -2,6 +2,7 @@ import pool from "../lib/db.js";
 import supabase from "../lib/supabase.js";
 import jwt from "jsonwebtoken";
 import { hash, compare } from "bcrypt";
+import { getInfo } from "../lib/info.js";
 
 export const createAdmin = async (req, res) => {
 
@@ -248,6 +249,7 @@ export const updateBlog = async (req, res) => {
 export const deleteBlog = async (req, res) => {
 
     const blogId = req.params.id;
+    const { country, category , date } = req.params;
 
     try {
         const { data: imageUrl, error } = await supabase
@@ -275,7 +277,24 @@ export const deleteBlog = async (req, res) => {
 
         if (deleteError) throw deleteError
 
-        return res.redirect("/manage/blog");
+        const { data, error: blogsError } = await supabase
+        .from("blogs")
+        .select("*")
+        .eq("country", country)
+        .eq("category", category)
+        .eq("date", date);
+
+        if (blogsError) throw blogsError
+
+        if (data.length === 0) {
+            return res.render("manage-blog.ejs", {
+                message: "no post found"
+            })
+        }
+
+        return res.render("manage-blog.ejs", {
+            blogs: data
+        });
 
     } catch (err) {
         console.error(err)
@@ -306,6 +325,84 @@ export const chooseCountry = async (req, res) => {
         return res.render("manage-blog.ejs", {
             blogs: data
         })
+
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const createInfo = async (req, res) => {
+
+    const { category, title, subtitle, information } = req.body;
+
+    if (!category || !information) {
+        return res.redirect("/create/site/info?message=cannot post empty fields")
+    }
+
+    try {
+
+        const { error } = await supabase
+        .from("site_info")
+        .insert({
+            category: category,
+            title: title,
+            subtitle: subtitle,
+            information: information
+        });
+
+        if (error) throw error
+
+        return res.redirect("/create/site/info?message=created success");
+
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const deleteInfo = async (req, res) => {
+
+    const infoId = req.params.id;
+    const category = req.params.category;
+
+    try {
+        const { error } = await supabase
+        .from("site_info")
+        .delete()
+        .eq("id", infoId)
+
+        if (error) throw error
+
+        const info = await getInfo(category);
+
+        return res.render("site-info.ejs", {
+            information: info
+        });
+
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const updateInfo = async (req, res) => {
+
+    const { category, title, subtitle, information } = req.body;
+
+    const blogId = req.params.id;
+
+    try {
+        const { error: updateInfoError } = await supabase
+        .from("site_info")
+        .update({
+            category: category,
+            title: title,
+            subtitle: subtitle,
+            information: information
+        })
+        .eq("id", blogId);
+
+        if (updateInfoError) throw updateInfoError
+        
+        return res.redirect("/create/site/info?message=updated success");
 
     } catch (err) {
         console.error(err)

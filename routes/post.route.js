@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import { chooseCountry, createAdmin, deleteBlog, loginAdmin, logoutAdmin, postBlog, updateBlog } from "../controller/post.controller.js";
+import { chooseCountry, createAdmin, createInfo, deleteBlog, deleteInfo, loginAdmin, logoutAdmin, postBlog, updateBlog, updateInfo } from "../controller/post.controller.js";
 
 const router = express();
 
@@ -14,6 +14,10 @@ router.post("/logout/admin", logoutAdmin);
 router.post("/post/blog", upload.single("image"), postBlog);
 router.post("/choose/country", chooseCountry);
 router.post("/update/:id/blog/", upload.single("image"), updateBlog);
-router.post("/delete/blog/:id", deleteBlog);
+router.post("/delete/blog/:id/:country/:category/:date", deleteBlog);
+router.post("/delete/site/info/:id/:category", deleteInfo);
+
+router.post("/create/site/info", createInfo);
+router.post("/update/site/info/:id", updateInfo);
 
 export default router; 

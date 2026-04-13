@@ -15,14 +15,23 @@
         <form action="/choose/country" method="POST" onsubmit="disableSubmitButton()">
             <select name="country">
                 <option value="<%= locals.blogs ? blogs[0].country : '' %>"><%= locals.blogs ? blogs[0].country : 'choose a country' %></option>
-                <option value="usa">usa</option>
-                <option value="uk">uk</option>
+                <option value="usa">united states</option>
+                <option value="uk">united kingdom</option>
+                <option value="ca">canada</option>
+                <option value="au">australia</option>
             </select>
 
             <select name="category">
                 <option value="<%= locals.blogs ? blogs[0].category : '' %>"><%= locals.blogs ? blogs[0].category : 'choose a category' %></option>
                 <option value="politics">politics</option>
                 <option value="finance">finance</option>
+                <option value="insurance">insurance</option>
+                <option value="technology">technology</option>
+                <option value="education">education & careers</option>
+                <option value="realestate">real estate</option>
+                <option value="legal">legal</option>
+                <option value="health">health</option>
+                <option value="sport">sport</option>
             </select>
 
             <input type="date" id="manageDate" name="date" />
@@ -34,9 +43,15 @@
             <% if (locals.blogs) {%>
                 <h2><%= blogs[0].country %> blogs</h2>
                 <h2><%= blogs[0].category %></h2>
+                <div class="blog">
                 <% blogs.forEach(blog => { %>
-
+                    <div>
                     <article>
+                        <span class="date"><%= new Date(blog.date).toLocaleDateString('en-GB', { 
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        }) %></span>
                         <h2><%= blog.title %></h2>
                         <img src="<%= blog.image %>" />
                         <span>posted by <%= blog.author %></span>
@@ -48,13 +63,15 @@
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
 
-                        <form action="/delete/blog/<%= blog.id %>" method="POST" 
+                        <form action="/delete/blog/<%= blog.id %>/<%= blog.country %>/<%= blog.category %>/<%= blog.date %>" method="POST" 
                         onsubmit="return confirm('are you sure you want to continue?')">
                         <button type="submit"><i class="fa-solid fa-xmark"></i></button>
                         </form>
                     </div>
-
+                    </div>
+                
                 <% }) %>
+                </div>
             <% } %>
             
             <% if (locals.message) {%>

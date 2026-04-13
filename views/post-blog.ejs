@@ -21,8 +21,10 @@
                 <option value="<%= editBlog ? editBlog.country : "" %>">
                     <%= editBlog ? editBlog.country : "choose country" %>
                 </option>
-                <option value="usa">usa</option>
-                <option value="uk">uk</option>
+                <option value="usa">united states</option>
+                <option value="uk">united kingdom</option>
+                <option value="ca">canada</option>
+                <option value="au">australia</option>
             </select>
 
             <select name="category">
@@ -31,6 +33,13 @@
                 </option>
                 <option value="politics">politics</option>
                 <option value="finance">finance</option>
+                <option value="insurance">insurance</option>
+                <option value="technology">technology</option>
+                <option value="education">education & careers</option>
+                <option value="realestate">real estate</option>
+                <option value="legal">legal</option>
+                <option value="health">health</option>
+                <option value="sport">sport</option>
             </select>
 
             <input type="text" 
@@ -57,5 +66,12 @@
     
     <%- include("partials/footer.ejs") %>
     <script src="/js/script.js"></script>
+    <script>
+        
+        document.querySelector("form").addEventListener("submit", function() {
+            document.querySelector("form > button").innerHTML = "...";
+        })
+
+    </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <%- include("partials/admin-header.ejs") %>
     <main class="admin-auth">
         <h1>create admin</h1>
-        <form action="/create/admin" method="POST" onsubmit="disableSubmitButton()">
+        <form id="createAdminForm" action="/create/admin" method="POST" onsubmit="disableSubmitButton()">
 
             <label><i class="fa-solid fa-user"></i>
             <input type="text" name="username" placeholder="username" />
@@ -17,7 +17,7 @@
             <input type="password" name="password" placeholder="password" />
             </label>
 
-            <button type="submit">create</button>
+            <button id="btn" type="submit">create</button>
 
         </form>
 
@@ -27,6 +27,13 @@
     </main>
 
     <%- include("partials/footer.ejs") %>
-    <script src="/js/script.js"></script>
+    <script>
+        
+        document.querySelector("form").addEventListener("submit", function() {
+            document.querySelector("form > button").innerHTML = "creating...";
+        })
+
+    </script>
+    <script src="/js/script"></script>
 </body>
 </html>

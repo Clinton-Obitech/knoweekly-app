@@ -7,6 +7,16 @@
         <h1>weekly news</h1>
         <h3>select a country</h3>
         <%- include("partials/country-nav.ejs") %>
+        
+        <section class="info">
+        <% if (locals.information.length > 0) { %>
+            <% information.forEach(info => { %>
+
+                <h2><%= info.information %></h2>
+
+            <% }) %>
+            <% } %>
+        </section>
     </main>
 
     <%- include("partials/footer.ejs") %>

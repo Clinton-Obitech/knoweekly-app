@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/admin-header.ejs") %>
+
+    <nav class="admin-nav">
+    <a href="/admin/dashboard">dashboard</a>
+    <a href="/create/site/info">create site info</a>
+    </nav>
+
+    <main class="site-info">
+        <h1>site information</h1>
+
+        <nav>
+            <a href="/site/info/view"><i class="fa-solid fa-xmark"></i></a>
+            <a href="/site/info/home">home content</a>
+            <a href="/site/info/about us">see about us</a>
+            <a href="/site/info/terms & conditions">see terms & conditions</a>
+            <a href="/site/info/privacy policy">privacy policy</a>
+            <a href="/site/info/contact us">contact</a>
+        </nav>
+
+        <section class="site-info-view">
+            <% if (locals.information.length > 0) {%>
+                <h2><%= information[0].category %></h2>
+                <% information.forEach(info => { %>
+                    <section>
+                        <h2><%= info.title %></h2>
+                        <h3><%= info.subtitle %></h3>
+                        <h4><%= info.information %></h4>
+
+                        <div class="action">
+                            <a href="/edit/site/info/<%= info.id %>">
+                                <i class="fa-regular fa-pen-to-square"></i>
+                            </a>
+
+                            <form action="/delete/site/info/<%= info.id %>/<%= info.category %>" method="POST">
+                                <button type="submit"><i class="fa-solid fa-xmark"></i></button>
+                            </form>
+                        </div>
+                    </section>
+               <% }) %>
+            <% } %>
+        </section>
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+    <script src="/js/script"></script>
+</body>
+</html>

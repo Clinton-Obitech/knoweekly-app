@@ -4,22 +4,22 @@
 <body>
     <%- include("partials/header.ejs") %>
     <main class="public-blogs uk">
-        <h1>united kingdom</h1>
+        <h1>australia</h1>
 
         <nav>
             <a href="/">home</a>
-            <a href="/uk/blog/politics">politics</a>
-            <a href="/uk/blog/finance">finance</a>
-            <a href="/uk/blog/insurance">insurance</a>
-            <a href="/uk/blog/technology">technology</a>
-            <a href="/uk/blog/realestate">real estate</a>
-            <a href="/uk/blog/education">education & career</a>
-            <a href="/uk/blog/legal">legal</a>
-            <a href="/uk/blog/health">health</a>
-            <a href="/uk/blog/sport">sport</a>
+            <a href="/au/blog/politics">politics</a>
+            <a href="/au/blog/finance">finance</a>
+            <a href="/au/blog/insurance">insurance</a>
+            <a href="/au/blog/technology">technology</a>
+            <a href="/au/blog/realestate">real estate</a>
+            <a href="/au/blog/education">education & career</a>
+            <a href="/au/blog/legal">legal</a>
+            <a href="/au/blog/health">health</a>
+            <a href="/au/blog/sport">sport</a>
         </nav>
 
-        <form id="dateForm" action="<%= locals.blogs.length > 0 ? '/uk/blog/' + locals.blogs[0].category : ''%>" method="GET">
+        <form id="dateForm" action="<%= locals.blogs.length > 0 ? '/au/blog/' + locals.blogs[0].category : ''%>" method="GET">
             <input type="date" id="date" name="date" 
             value="<%= locals.blogs.length > 0 ? locals.blogs[0].date : locals.date  %>" />
 

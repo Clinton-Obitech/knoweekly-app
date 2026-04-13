@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/admin-header.ejs") %>
+
+    <nav class="admin-nav">
+    <a href="/admin/dashboard">dashboard</a>
+    <a href="/site/info/view">site info</a>
+    </nav>
+
+    <main class="create-site-info">
+        <h1><%= editInfo ? "update site information" : "create site information" %></h1>
+
+        <form action="<%= editInfo ? '/update/site/info/' + editInfo.id : '/create/site/info' %>" 
+         method="POST">
+            <select name="category">
+                <option value="<%= editInfo ? editInfo.category : '' %>">
+                    <%= editInfo ? editInfo.category : "select category" %>
+                </option>
+                <option value="home">home content</option>
+                <option value="about us">about us</option>
+                <option value="privacy policy">privacy policy</option>
+                <option value="terms & conditions">terms and condition</option>
+                <option value="contact us">contact us</option>
+            </select>
+
+            <input type="text" name="title" 
+             value="<%= editInfo ? editInfo.title : ''%>"
+             placeholder="title"
+            />
+
+            <input type="text" name="subtitle" 
+             value="<%= editInfo ? editInfo.subtitle : '' %>"
+             placeholder="subtitle"
+            />
+
+            <textarea name="information"><%= editInfo ? editInfo.information : "information..." %></textarea>
+
+            <button type="submit"><%= editInfo ? "update" : "create" %></button>
+        </form>
+
+        <% if (locals.message) { %>
+            <p class="message"><%= message %></p>
+        <% } %>
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+    <script>
+        
+        document.querySelector("form").addEventListener("submit", function() {
+            document.querySelector("form > button").innerHTML = "...";
+        })
+
+    </script>
+</body>
+</html>

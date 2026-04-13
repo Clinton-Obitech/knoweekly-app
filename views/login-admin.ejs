@@ -6,7 +6,7 @@
     <main class="admin-auth">
         <h1>admin login</h1>
 
-        <form action="/login/admin" method="POST" onsubmit="disableSubmitButton()">
+        <form id="loginForm" action="/login/admin" method="POST" onsubmit="disableSubmitButton()">
 
             <label><i class="fa-solid fa-user"></i>
             <input type="text" name="username" placeholder="username" />
@@ -25,6 +25,13 @@
     </main>
 
     <%- include("partials/footer.ejs") %>
+    <script>
+        
+        document.querySelector("form").addEventListener("submit", function() {
+            document.querySelector("form > button").innerHTML = "logging...";
+        })
+
+    </script>
     <script src="/js/script.js"></script>
 </body>
 </html>
