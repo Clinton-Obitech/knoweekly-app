@@ -18,7 +18,7 @@ a {
 button {
     border: none;
     background-color: rgba(0, 100, 150, 0.4);
-    border-radius: 3px;
+    border-radius: 10px;
     color: black;
     text-transform: capitalize;
     border: 1.5px solid black;
@@ -59,9 +59,12 @@ footer {
 
 h1 {
     text-transform: capitalize;
-    padding: 1rem 1rem 0;
+    padding: 0.5rem 1rem;
     font-family: serif;
-    color: rgba(0, 0, 0, 0.9);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 1rem 0.5rem;
+    border-radius: 3px;
 }
 
 main.home h1 {
@@ -84,6 +87,36 @@ nav.country-nav {
 
 p.message {
     text-align: center;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 2rem 1rem;
+    width: 80%;
+    border-radius: 5px;
+    align-self: center;
+    text-transform: capitalize;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+p.message > button {
+    padding: 0.5rem 1rem;
+}
+
+p.error {
+    position: absolute;
+    top: -1.5rem;
+    align-self: flex-start;
+    text-align: left;
+    display: block;
+    color: red;
+    border-radius: 5px;
+    text-transform: capitalize;
+    padding-left: 2rem;
+    font-family: sans-serif;
 }
 
 .country-nav a {
@@ -222,4 +255,8 @@ p.message {
 .home section.info h2 {
     font-size: 2rem;
     text-align: center;
+}
+
+.home h3 {
+    text-transform: capitalize;
 }

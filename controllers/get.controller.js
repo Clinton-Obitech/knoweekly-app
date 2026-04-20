@@ -1,6 +1,6 @@
 import { getAdmin } from "../lib/admin.js";
-import { queryUSABlogs, queryUKBlogs, queryCABlogs, queryAUBlogs } from "../lib/blogs.js";
-import { getInfo } from "../lib/info.js";
+import { queryUSABlogs, queryUKBlogs, queryCABlogs, queryAUBlogs } from "../lib/all-blogs.js";
+import { getSiteInfo } from "../lib/site-info.js";
 import supabase from "../lib/supabase.js";
 
 export const Home = async (req, res) => {
@@ -32,9 +32,10 @@ export const CreateAdmin = (req, res) => {
 }
 
 export const LoginAdmin = (req, res) => {
-    const message = req.query.message;
+    const { message, error } = req.query;
+    console.log(error)
 
-    res.render("login-admin.ejs", {message})
+    res.render("login-admin.ejs", {message, error})
 }
 
 export const AdminDashboard = async (req, res) => {
@@ -47,11 +48,12 @@ export const AdminDashboard = async (req, res) => {
 }
 
 export const PostBlog = (req, res) => {
-    const message = req.query.message;
+    const { message, error } = req.query;
 
     res.render("post-blog.ejs", {
         editBlog: null,
-        message
+        message,
+        error
     })
 }
 
@@ -188,11 +190,13 @@ export const CreateInfo = (req, res) => {
 export const SiteInfo = async (req, res) => {
     const category = req.params.category;
 
-    console.log(category)
+    const { error, message } = req.query;
 
-    const info = await getInfo(category);
+    const info = await getSiteInfo(category);
 
     res.render("site-info.ejs", {
-        information: info
+        information: info,
+        error,
+        message
     })
 }

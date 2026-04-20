@@ -12,9 +12,9 @@
     <main class="admin-manage-blogs">
         <h1>manage blogs</h1>
 
-        <form action="/choose/country" method="POST" onsubmit="disableSubmitButton()">
+        <form action="/manage/query" method="POST" onsubmit="disableSubmitButton()">
             <select name="country">
-                <option value="<%= locals.blogs ? blogs[0].country : '' %>"><%= locals.blogs ? blogs[0].country : 'choose a country' %></option>
+                <option>choose a country</option>
                 <option value="usa">united states</option>
                 <option value="uk">united kingdom</option>
                 <option value="ca">canada</option>
@@ -22,7 +22,7 @@
             </select>
 
             <select name="category">
-                <option value="<%= locals.blogs ? blogs[0].category : '' %>"><%= locals.blogs ? blogs[0].category : 'choose a category' %></option>
+                <option>choose a category</option>
                 <option value="politics">politics</option>
                 <option value="finance">finance</option>
                 <option value="insurance">insurance</option>
@@ -72,16 +72,39 @@
                 
                 <% }) %>
                 </div>
-            <% } %>
+            <% } else { %> 
+                <p>no blog found</p>
+                <% } %>
             
-            <% if (locals.message) {%>
-                <p class="message"><%= message %></p>
-            <% } %>
         </section>
+
+        <div id="feedback">
+
+        <% if (locals.message) {%>
+            <section>
+            <%= message %>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+        <% } %>
+        </div>
 
     </main>
     
     <%- include("partials/footer.ejs") %>
     <script src="/js/script.js"></script>
+    <script>
+        document.querySelector("form").addEventListener("submit", function() {
+            document.querySelector("form > button").innerHTML = "loading...";
+        })
+        
+        const button = document.querySelector("#feedback button");
+        button.addEventListener("click", function() {
+            document.getElementById("feedback").style.display = "none";
+        })
+
+        document.addEventListener("click", function() {
+            document.getElementById("feedback").style.display = "none";
+        })
+    </script>
 </body>
 </html>

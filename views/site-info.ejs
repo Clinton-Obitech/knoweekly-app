@@ -21,6 +21,22 @@
             <a href="/site/info/contact us">contact</a>
         </nav>
 
+        <div id="feedback">
+        <% if (locals.error) {%>
+            <section>
+            <%= error %>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+        <% } %>
+
+        <% if (locals.message) {%>
+            <section>
+            <%= message %>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+        <% } %>
+        </div>
+
         <section class="site-info-view">
             <% if (locals.information.length > 0) {%>
                 <h2><%= information[0].category %></h2>
@@ -35,17 +51,31 @@
                                 <i class="fa-regular fa-pen-to-square"></i>
                             </a>
 
-                            <form action="/delete/site/info/<%= info.id %>/<%= info.category %>" method="POST">
+                            <form action="/delete/site/info/<%= info.id %>/<%= info.category %>" method="POST"
+                                onsubmit="return confirm('are you sure to delete?')"
+                                >
                                 <button type="submit"><i class="fa-solid fa-xmark"></i></button>
                             </form>
                         </div>
                     </section>
                <% }) %>
-            <% } %>
+            <% } else {%>
+                <p>no info found</p>
+                <% } %>
         </section>
     </main>
     
     <%- include("partials/footer.ejs") %>
     <script src="/js/script"></script>
+    <script>
+        const button = document.querySelector("#feedback button");
+        button.addEventListener("click", function() {
+            document.getElementById("feedback").style.display = "none";
+        })
+
+         document.addEventListener("click", function() {
+            document.getElementById("feedback").style.display = "none";
+        })
+    </script>
 </body>
 </html>

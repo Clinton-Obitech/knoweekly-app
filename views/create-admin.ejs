@@ -24,6 +24,10 @@
         <% if (locals.message) {%>
             <p class="message"><%= message %></p>
         <% } %>
+
+        <% if (locals.error) {%>
+            <p class="error"><%= error %></p>
+        <% } %>
     </main>
 
     <%- include("partials/footer.ejs") %>

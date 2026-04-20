@@ -1,5 +1,5 @@
 import express from "express";
-import { AdminDashboard, AdminHome, AUblog, CAblog, CreateAdmin, CreateInfo, EditBlog, EditInfo, Home, LoginAdmin, ManageBlog, PostBlog, SiteInfo, UKblog, USblog} from "../controller/get.controller.js";
+import { AdminDashboard, AdminHome, AUblog, CAblog, CreateAdmin, CreateInfo, EditBlog, EditInfo, Home, LoginAdmin, ManageBlog, PostBlog, SiteInfo, UKblog, USblog} from "../controllers/get.controller.js";
 import { verifyAdminToken } from "../middleware/admin.js";
 
 const router = express();

@@ -13,7 +13,9 @@
         <h1><%= editInfo ? "update site information" : "create site information" %></h1>
 
         <form action="<%= editInfo ? '/update/site/info/' + editInfo.id : '/create/site/info' %>" 
-         method="POST">
+         method="POST"
+         onsubmit="disableSubmitButton()"
+         >
             <select name="category">
                 <option value="<%= editInfo ? editInfo.category : '' %>">
                     <%= editInfo ? editInfo.category : "select category" %>
@@ -38,18 +40,40 @@
             <textarea name="information"><%= editInfo ? editInfo.information : "information..." %></textarea>
 
             <button type="submit"><%= editInfo ? "update" : "create" %></button>
+
+            <% if (locals.error) {%>
+            <p style="padding-left: 0;" class="error"><%= error %></p>
+            <% } %>
         </form>
 
-        <% if (locals.message) { %>
-            <p class="message"><%= message %></p>
+        <div id="feedback">
+
+        <% if (locals.message) {%>
+            <section>
+            <%= message %>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
         <% } %>
+        </div>
+
     </main>
     
     <%- include("partials/footer.ejs") %>
+    <script src="/js/script.js"></script>
     <script>
         
         document.querySelector("form").addEventListener("submit", function() {
-            document.querySelector("form > button").innerHTML = "...";
+            document.querySelector("form > button").innerHTML = "loading...";
+        })
+
+        const button = document.querySelector("#feedback button");
+        button.addEventListener("click", function() {
+            document.getElementById("feedback").style.display = "none";
+        })
+
+        
+        document.addEventListener("click", function() {
+            document.getElementById("feedback").style.display = "none";
         })
 
     </script>
