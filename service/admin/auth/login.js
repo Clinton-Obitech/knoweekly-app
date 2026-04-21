@@ -4,8 +4,10 @@ import bcrypt from "bcrypt";
 export const loginAdmin = async (body) => {
 
     const { username, password } = body;
+    const modUsername = username.trim().toLowerCase();
+    const modPassword = password.trim();
 
-    if (!username || !password) {
+    if (!modUsername || !modPassword) {
             return {
                 success: false,
                 error: "Both fields are required"
@@ -15,7 +17,7 @@ export const loginAdmin = async (body) => {
     const { data: admin, error: adminError } = await supabase
         .from("admin")
         .select("*")
-        .eq("username", username)
+        .eq("username", modUsername)
         .maybeSingle();
         
         if (adminError) throw adminError
@@ -27,7 +29,7 @@ export const loginAdmin = async (body) => {
             }
         }
         
-    const matchPassword = await bcrypt.compare(password, admin.password);
+    const matchPassword = await bcrypt.compare(modPassword, admin.password);
         
     if (!matchPassword) {
             return {

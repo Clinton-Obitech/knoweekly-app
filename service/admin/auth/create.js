@@ -23,11 +23,11 @@ export const createAdmin = async (body) => {
 
             let message;
             if (admin.username === username && admin.email === email) {
-                message = "username and email already exists";
+                message = "Username and email already exists";
             } else if (admin.username === username) {
                 message = "username already exists";
             } else if (admin.email === email) {
-                message = "email already exists";
+                message = "Email already exists";
             }
 
             return {
@@ -54,6 +54,6 @@ export const createAdmin = async (body) => {
 
         return {
             success: true,
-            message: "admin created success"
+            message: "Admin created success"
         }
 }

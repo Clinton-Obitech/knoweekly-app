@@ -40,14 +40,13 @@ export const deleteBlog = async (params) => {
 
         if (data.length === 0) {
             return {
-                success: false,
-                message: "all blogs deleted"
+                message: "all blogs deleted",
+                blogs: data
             }
         }
 
         return {
-            success: true,
-            message: "blog deleted",
+            message: "Blog deleted",
             blogs: data
         }
 }

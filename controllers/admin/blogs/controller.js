@@ -48,14 +48,17 @@ export const deleteBlogController = async (req, res) => {
     const result = await deleteBlog(req.params);
 
     try {
-            if (!result.success) {
-                return res.redirect(`/manage/blog?message=${result.message}`); 
-            }
+        if (!result.success) {
+            return res.render("manage-blog.ejs", {
+                message: result.message,
+                blogs: null
+            });
+        }
 
-                return res.render("manage-blog.ejs", {
-                       message: result.message,
-                       blogs: result.blogs
-                });
+        return res.render("manage-blog.ejs", {
+                message: result.message,
+                blogs: result.blogs
+            });
 
     } catch (err) {
         console.error(err);

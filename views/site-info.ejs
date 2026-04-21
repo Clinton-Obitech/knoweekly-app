@@ -22,18 +22,13 @@
         </nav>
 
         <div id="feedback">
-        <% if (locals.error) {%>
-            <section>
-            <%= error %>
-            <button onclick="closeFeedback()">ok</button>
-            </section>
-        <% } %>
 
         <% if (locals.message) {%>
             <section>
             <%= message %>
             <button onclick="closeFeedback()">ok</button>
             </section>
+            <div class="overlay"></div>
         <% } %>
         </div>
 

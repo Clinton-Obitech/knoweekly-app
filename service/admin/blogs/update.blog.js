@@ -7,7 +7,7 @@ export const updateBlog = async (body, blogId, file) => {
     if (!country || !category || !title || !content) {
         return {
             success: false,
-            error: "cannot update blog with empty field"
+            error: "Cannot update blog with empty field"
         }
     }
 
@@ -65,7 +65,7 @@ export const updateBlog = async (body, blogId, file) => {
 
         return {
             success: true,
-            message: "update successful"
+            message: "Blog update successful"
         }
 
 }

@@ -7,14 +7,14 @@ export const postBlog = async (body, file) => {
     if (!country || !category || !title || !content) {
         return {
             success: false,
-            error: "cannot create post with empty field"
+            error: "Cannot create post with empty field"
         }
     }
 
     if (!file) {
         return {
             success: false,
-            error: "no file uploaded"
+            error: "No file uploaded"
         }
     }
 
@@ -48,7 +48,7 @@ export const postBlog = async (body, file) => {
 
     return {
         success: true,
-        message: "blog posted successful"
+        message: "Blog posted successful"
     }
 
 }

@@ -2,6 +2,7 @@ import { getAdmin } from "../lib/admin.js";
 import { queryUSABlogs, queryUKBlogs, queryCABlogs, queryAUBlogs } from "../lib/all-blogs.js";
 import { getSiteInfo } from "../lib/site-info.js";
 import supabase from "../lib/supabase.js";
+import jwt from "jsonwebtoken";
 
 export const Home = async (req, res) => {
     try {
@@ -33,9 +34,16 @@ export const CreateAdmin = (req, res) => {
 
 export const LoginAdmin = (req, res) => {
     const { message, error } = req.query;
-    console.log(error)
+    const token = req.cookies.adminToken;
 
-    res.render("login-admin.ejs", {message, error})
+    if (token) {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        if (decoded) {
+        return res.redirect("/admin/dashboard")
+      }
+    }
+
+    return res.render("login-admin.ejs", {message, error})
 }
 
 export const AdminDashboard = async (req, res) => {
