@@ -281,7 +281,7 @@ main.admin-manage-blogs form select {
 
 nav.admin-nav {
     display: flex;
-    padding: 1rem;
+    padding: 0 1rem 0.5rem;
     gap: 1rem;
 }
 
