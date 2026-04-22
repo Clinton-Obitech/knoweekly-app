@@ -58,10 +58,24 @@
     
     <%- include("partials/footer.ejs") %>
     <script src="/js/script.js"></script>
+    <script src="/js/script1.js"></script>
     <script>
         document.getElementById("dateForm").addEventListener("submit", function() {
         document.querySelector("#dateForm > button").innerHTML = "loading...";
     })
+
+    const Btn = document.getElementById("HeaderNav");
+    const DropDown = document.getElementById("navDropDown");
+
+    Btn.addEventListener("click", function() {
+        const dropped = DropDown.classList.toggle("showDropDown");
+        if (dropped) {
+            Btn.setAttribute("class", "fa-solid fa-xmark")
+        } else {
+            Btn.setAttribute("class", "fa-solid fa-bars")
+        }
+    })
+
     </script>
 </body>
 </html>

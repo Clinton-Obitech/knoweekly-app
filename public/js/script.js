@@ -1,5 +1,4 @@
 {
-    //go back to previous page
     const button = document.getElementById("goBack");
 
     button.addEventListener("click", () => {
@@ -7,11 +6,10 @@
     })
 }
 
-{
     function disableSubmitButton() {
         document.querySelector("form button").disabled = true;
     }
-}
+
 
 {
     const button = document.querySelectorAll(".public-blogs article button");
@@ -49,11 +47,9 @@
     })
 }
 
-{
     function homepage() {
         window.location.href = "/";
     }
-}
 
 {
     const today = new Date().toISOString().split("T")[0];

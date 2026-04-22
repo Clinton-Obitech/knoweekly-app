@@ -52,6 +52,18 @@ header {
     gap: 0.5rem;
 }
 
+header.admin {
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: whitesmoke;
+    background-color: rgba(0, 100, 150);
+    margin: 0.5rem;
+    border-radius: 4px;
+    gap: 0.5rem;
+}
+
 footer {
     padding: 1rem;
     text-align: center;
@@ -240,6 +252,7 @@ p.error {
     box-shadow: 0px 0px 2px black;
     border-radius: 5px;
     border: none;
+    background-color: white;
 }
 
 #dateForm button {
@@ -260,4 +273,19 @@ p.error {
 
 .home h3 {
     text-transform: capitalize;
+}
+
+#navDropDown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 3px black;
+    top: 4rem;
+    right: 1rem;
+    padding: 1rem;
+}
+
+#navDropDown.showDropDown {
+    display: block;
 }

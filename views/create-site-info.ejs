@@ -21,10 +21,10 @@
                     <%= editInfo ? editInfo.category : "select category" %>
                 </option>
                 <option value="home">home content</option>
-                <option value="about us">about us</option>
-                <option value="privacy policy">privacy policy</option>
-                <option value="terms & conditions">terms and condition</option>
-                <option value="contact us">contact us</option>
+                <option value="about">about us</option>
+                <option value="policy">privacy policy</option>
+                <option value="terms">terms and condition</option>
+                <option value="contact">contact us</option>
             </select>
 
             <input type="text" name="title" 
@@ -61,6 +61,7 @@
     
     <%- include("partials/footer.ejs") %>
     <script src="/js/script.js"></script>
+    <script src="/js/script1.js"></script>
     <script>
         
         document.querySelector("form").addEventListener("submit", function() {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+</head>
+<body>
+    <%- include("partials/auth-header.ejs") %>
+
+    <main class="info">
+
+        <h1>privacy policy</h1>
+
+        <section class="policy">
+        <% if (locals.information.length > 0) { %>
+            <% information.forEach(info => { %>
+
+                <% if (info.title) { %>
+                    <h2><%= info.title %></h2>
+                <% } %>
+                <% if (info.subtitle) { %>
+                    <h3><%= info.subtitle %></h3>
+                <% } %>
+                <% if (info.information) { %>
+                    <p><%= info.information %></p>
+                <% } %>
+
+            <% }) %>
+            <% } %>
+        </section>
+
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+    <script src="/js/script.js"></script>
+</body>
+</html>

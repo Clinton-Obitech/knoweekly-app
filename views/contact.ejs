@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head.ejs") %>
+</head>
+<body>
+    <%- include("partials/auth-header.ejs") %>
+
+    <main class="info">
+
+        <h1>contact us</h1>
+
+        <section class="contact">
+        <% if (locals.information) { %>
+            <% information.forEach(info => { %>
+                <div class="email">
+                    <h2><%= info.title %></h2>
+                    <button>
+                        <a href="<%= info.information %>"></a>
+                        send email
+                        </a>
+                    </button>
+                </div>
+            <% }) %>
+            <% } %>
+
+            <form action="/send/message" method="POST">
+                <h2>send us a message</h2>
+                <input type="text" name="fullname" placeholder="your name..."/>
+                <input type="email" name="email" placeholder="email..."/>
+                <textarea name="message">message</textarea>
+
+                <button type="submit">send message</button>
+            </form>
+
+            <% if (locals.error) {%>
+                <p class="error"><%= error %></p>
+            <% } %>
+
+            <div id="feedback">
+
+        <% if (locals.message) {%>
+            <section>
+            <%= message %>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
+        <% } %>
+        </div>
+        </section>
+
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+    <script>
+        const button = document.querySelector("#feedback button");
+        button.addEventListener("click", function() {
+            document.getElementById("feedback").style.display = "none";
+        })
+
+        document.addEventListener("click", function() {
+            document.getElementById("feedback").style.display = "none";
+        })
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

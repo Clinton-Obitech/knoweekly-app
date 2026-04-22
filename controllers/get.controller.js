@@ -22,6 +22,81 @@ export const Home = async (req, res) => {
     }
 }
 
+export const About = async (req, res) => {
+    try {
+        const { data , error } = await supabase
+        .from("site_info")
+        .select("*")
+        .eq("category", 'about')
+
+        if (error) throw error
+
+        return res.render("about.ejs", {
+            information: data
+        })
+        
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const Contact = async (req, res) => {
+    const { message, error } = req.query;
+    try {
+        const { data , error: cerror } = await supabase
+        .from("site_info")
+        .select("*")
+        .eq("category", 'contact')
+
+        if (cerror) throw cerror
+
+        return res.render("contact.ejs", {
+            information: data,
+            error,
+            message
+        })
+        
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const Terms = async (req, res) => {
+    try {
+        const { data , error } = await supabase
+        .from("site_info")
+        .select("*")
+        .eq("category", 'terms')
+
+        if (error) throw error
+
+        return res.render("terms.ejs", {
+            information: data
+        })
+        
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const Policy = async (req, res) => {
+    try {
+        const { data , error } = await supabase
+        .from("site_info")
+        .select("*")
+        .eq("category", 'policy')
+
+        if (error) throw error
+
+        return res.render("policy.ejs", {
+            information: data
+        })
+        
+    } catch (err) {
+        console.error(err)
+    }
+}
+
 export const AdminHome = (req, res) => {
     res.render("admin.ejs")
 }
@@ -120,10 +195,9 @@ export const EditInfo = async (req, res) => {
 export const USblog = async (req, res) => {
 
     const today = new Date().toISOString().split("T")[0];
-
     const date = req.query.date || today;
-
     const category = req.params.category;
+
 
     const usaBlogs = await queryUSABlogs(category, date);
 
@@ -137,9 +211,7 @@ export const USblog = async (req, res) => {
 export const UKblog = async (req, res) => {
 
     const today = new Date().toISOString().split("T")[0];
-
     const date = req.query.date || today;
-
     const category = req.params.category;
 
     const ukBlogs = await queryUKBlogs(category, date);
@@ -154,9 +226,7 @@ export const UKblog = async (req, res) => {
 export const CAblog = async (req, res) => {
 
     const today = new Date().toISOString().split("T")[0];
-
     const date = req.query.date || today;
-
     const category = req.params.category;
 
     const caBlogs = await queryCABlogs(category, date);
@@ -171,9 +241,7 @@ export const CAblog = async (req, res) => {
 export const AUblog = async (req, res) => {
 
     const today = new Date().toISOString().split("T")[0];
-
     const date = req.query.date || today;
-
     const category = req.params.category;
 
     const auBlogs = await queryAUBlogs(category, date);
