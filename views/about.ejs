@@ -10,10 +10,9 @@
 
         <h1>about us</h1>
 
-        <section class="about">
         <% if (locals.information.length > 0) { %>
             <% information.forEach(info => { %>
-
+                <section class="about">
                 <% if (info.title) {%>
                     <h2><%= info.title %></h2>
                 <% } %>
@@ -23,10 +22,9 @@
                 <% if (info.information) {%>
                     <p><%= info.information %></p>
                 <% } %>
-
+                </section>
             <% }) %>
             <% } %>
-        </section>
 
     </main>
     

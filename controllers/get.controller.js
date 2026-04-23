@@ -1,5 +1,5 @@
 import { getAdmin } from "../lib/admin.js";
-import { queryUSABlogs, queryUKBlogs, queryCABlogs, queryAUBlogs } from "../lib/all-blogs.js";
+import { queryUSABlogs, queryUKBlogs, queryCABlogs, queryAUBlogs} from "../lib/all-blogs.js";
 import { getSiteInfo } from "../lib/site-info.js";
 import supabase from "../lib/supabase.js";
 import jwt from "jsonwebtoken";
@@ -197,7 +197,7 @@ export const USblog = async (req, res) => {
     const today = new Date().toISOString().split("T")[0];
     const date = req.query.date || today;
     const category = req.params.category;
-
+    console.log(req.body)
 
     const usaBlogs = await queryUSABlogs(category, date);
 
@@ -206,6 +206,30 @@ export const USblog = async (req, res) => {
         date: date
     });
     
+}
+
+export const SearchUSA = (req, res) => {
+    res.render("search-usa.ejs", {
+        blogs: null
+    })
+}
+
+export const SearchUK = (req, res) => {
+    res.render("search-uk.ejs", {
+        blogs: null
+    })
+}
+
+export const SearchAU = (req, res) => {
+    res.render("search-au.ejs", {
+        blogs: null
+    })
+}
+
+export const SearchCA = (req, res) => {
+    res.render("search-ca.ejs", {
+        blogs: null
+    })
 }
 
 export const UKblog = async (req, res) => {

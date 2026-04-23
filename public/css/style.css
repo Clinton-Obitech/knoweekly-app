@@ -159,6 +159,7 @@ p.error {
 .public-blogs article p {
     padding: 0.5rem 2rem 0.5rem 1rem;
     font-size: 1.2rem;
+    text-align: left;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -240,11 +241,66 @@ p.error {
     padding: 0.3rem 1rem;
 }
 
+#searchForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#searchFormPage {
+    display: grid;
+    grid-template-columns: 15% 60% 25%;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+}
+
+#searchFormPage a {
+    padding: 0.3rem;
+    text-align: center;
+}
+
+#searchFormPage input {
+    padding: 0.4rem 1rem;
+    box-shadow: 0px 0px 2px black;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+}
+
+#searchForm input {
+    padding: 0.4rem 1rem;
+    box-shadow: 0px 0px 2px black;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+}
+
+#searchForm button {
+    padding: 0.4rem;
+    text-align: center;
+}
+
+#searchFormPage button {
+    padding: 0.4rem 0.5rem;
+    white-space: nowrap;
+}
+
+.public-blogs-forms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
 #dateForm {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 #dateForm input {
@@ -256,7 +312,7 @@ p.error {
 }
 
 #dateForm button {
-    padding: 0 2rem;
+    padding: 0.4rem 2rem;
 }
 
 .home section.info {
@@ -266,8 +322,12 @@ p.error {
     gap: 1rem;
 }
 
-.home section.info h2 {
+.home section.info > h2 {
     font-size: 2rem;
+    text-align: center;
+}
+
+.home section.info > h3, p {
     text-align: center;
 }
 

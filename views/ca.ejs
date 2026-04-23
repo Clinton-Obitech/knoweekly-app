@@ -19,15 +19,24 @@
             <a href="/ca/blog/sport">sport</a>
         </nav>
 
+        <div class="public-blogs-forms">
+
+        <form id="searchForm" action="/search/ca" method="POST" onsubmit="disableSearchSubmitButton()">
+            <input type="text" name="search" placeholder="Search..."/>
+            <button type="submit">search keywords</button>
+        </form>
+
         <form id="dateForm" action="<%= locals.blogs.length > 0 ? '/ca/blog/' + locals.blogs[0].category : ''%>" 
             method="GET"
-            onsubmit="disableSubmitButton()"
+            onsubmit="disableDateSubmitButton()"
             >
             <input type="date" id="date" name="date" 
             value="<%= locals.blogs.length > 0 ? locals.blogs[0].date : locals.date  %>" />
 
             <button type="submit">Go</button>
         </form>
+
+        </div>
 
         <section class="blogs">
             <% if (locals.blogs.length > 0) {%>
@@ -62,6 +71,10 @@
     <script>
         document.getElementById("dateForm").addEventListener("submit", function() {
         document.querySelector("#dateForm > button").innerHTML = "loading...";
+    })
+
+    document.getElementById("searchForm").addEventListener("submit", function() {
+        document.querySelector("#searchForm > button").innerHTML = "loading...";
     })
 
     const Btn = document.getElementById("HeaderNav");

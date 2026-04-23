@@ -5,9 +5,16 @@
         window.history.back();
     })
 }
-
     function disableSubmitButton() {
         document.querySelector("form button").disabled = true;
+    }
+
+    function disableDateSubmitButton() {
+        document.querySelector("#dateForm button").disabled = true;
+    }
+
+    function disableSearchSubmitButton() {
+        document.querySelector("#searchForm button").disabled = true;
     }
 
 

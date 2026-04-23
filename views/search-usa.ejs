@@ -7,41 +7,14 @@
     <main class="public-blogs usa">
         <h1>united state of america</h1>
 
-        <nav>
-            <a href="/">home</a>
-            <a href="/usa/blog/politics">politics</a>
-            <a href="/usa/blog/finance">finance</a>
-            <a href="/usa/blog/insurance">insurance</a>
-            <a href="/usa/blog/technology">technology</a>
-            <a href="/usa/blog/realestate">real estate</a>
-            <a href="/usa/blog/education">education & career</a>
-            <a href="/usa/blog/legal">legal</a>
-            <a href="/usa/blog/health">health</a>
-            <a href="/usa/blog/sport">sport</a>
-        </nav>
-
-        <div class="public-blogs-forms">
-
-        <form id="searchForm" action="/search/usa" method="POST" onsubmit="disableSearchSubmitButton()">
+        <form id="searchFormPage" action="/search/usa" method="POST" onsubmit="disableSubmitButton()">
+            <a href="/usa/blog/politics">blogs</a>
             <input type="text" name="search" placeholder="Search..."/>
             <button type="submit">search keywords</button>
         </form>
 
-            <form id="dateForm" action="<%= locals.blogs.length > 0 ? '/usa/blog/' + locals.blogs[0].category : ''%>" 
-            method="GET"
-            onsubmit="disableDateSubmitButton()"
-            >
-            <input type="date" id="date" name="date" 
-            value="<%= locals.blogs.length > 0 ? locals.blogs[0].date : locals.date  %>" />
-
-            <button type="submit">Go to date</button>
-            </form>
-
-        </div>
-
         <section>
-            <% if (locals.blogs.length > 0) {%>
-                <h2><%= blogs[0].category %></h2>
+            <% if (locals.blogs) {%>
                 <% blogs.forEach(blog => { %>
                     <article>
                         <span class="date"><%= new Date(blog.date).toLocaleDateString('en-GB', { 
@@ -59,18 +32,19 @@
                     </article>
               <%  }) %>
             <% } else { %>
-                <p class="not-found">no post found</p>
+                <p class="not-found">no search found</p>
                 <% } %>
         </section>
 
     </main>
     
     <%- include("partials/footer.ejs") %>
+
     <script src="/js/script.js"></script>
     <script src="/js/script1.js"></script>
     <script>
-        document.getElementById("dateForm").addEventListener("submit", function() {
-        document.querySelector("#dateForm > button").innerHTML = "loading...";
+        document.getElementById("searchFormPage").addEventListener("submit", function() {
+        document.querySelector("#searchFormPage > button").innerHTML = "loading...";
     })
 
     const Btn = document.getElementById("HeaderNav");

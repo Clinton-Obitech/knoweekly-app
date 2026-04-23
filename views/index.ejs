@@ -8,11 +8,21 @@
         <h3>select country</h3>
         <%- include("partials/country-nav.ejs") %>
         
-        <section class="info">
         <% if (locals.information.length > 0) { %>
             <% information.forEach(info => { %>
+                <section class="info">
 
-                <h2><%= info.information %></h2>
+                <% if (info.title) { %>
+                    <h2><%= info.title %></h2>
+                <% } %>
+                <% if (info.subtitle) { %>
+                    <h3><%= info.subtitle %></h3>
+                <% } %>
+                <% if (info.information) { %>
+                    <p><%= info.information %></p>
+                <% } %>
+
+                </section>
 
             <% }) %>
             <% } %>

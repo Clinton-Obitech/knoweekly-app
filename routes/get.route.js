@@ -1,5 +1,5 @@
 import express from "express";
-import { About, AdminDashboard, AdminHome, AUblog, CAblog, Contact, CreateAdmin, CreateInfo, EditBlog, EditInfo, Home, LoginAdmin, ManageBlog, Policy, PostBlog, SiteInfo, Terms, UKblog, USblog} from "../controllers/get.controller.js";
+import { About, AdminDashboard, AdminHome, AUblog, CAblog, Contact, CreateAdmin, CreateInfo, EditBlog, EditInfo, Home, LoginAdmin, ManageBlog, Policy, PostBlog, SearchAU, SearchCA, SearchUK, SearchUSA, SiteInfo, Terms, UKblog, USblog} from "../controllers/get.controller.js";
 import { verifyAdminToken } from "../middleware/admin.js";
 
 const router = express();
@@ -10,6 +10,10 @@ router.get("/contact/us", Contact);
 router.get("/terms/conditions", Terms);
 router.get("/privacy/policy", Policy);
 router.get("/usa/blog/:category", USblog);
+router.get("/usa/search", SearchUSA);
+router.get("/uk/search", SearchUK);
+router.get("/au/search", SearchAU);
+router.get("/ca/search", SearchCA);
 router.get("/uk/blog/:category", UKblog);
 router.get("/ca/blog/:category", CAblog);
 router.get("/au/blog/:category", AUblog);

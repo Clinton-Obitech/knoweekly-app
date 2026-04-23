@@ -4,6 +4,7 @@ import { createAdminController, loginAdminController, logoutAdmin } from "../con
 import { postBlogController, updateBlogController, deleteBlogController, manageByQueryController } from "../controllers/admin/blogs/controller.js";
 import { createInfoController, deleteInfoController, updateInfoController } from "../controllers/admin/site-info/controller.js";
 import { MessageController } from "../controllers/user/message/controller.js";
+import { searchUSblogsController } from "../controllers/searchBlogs/controller.js";
 
 const router = express();
 
@@ -25,5 +26,7 @@ router.post("/delete/blog/:id/:country/:category/:date", deleteBlogController);
 router.post("/create/site/info", createInfoController);
 router.post("/update/site/info/:id", updateInfoController);
 router.post("/delete/site/info/:id/:category", deleteInfoController);
+
+router.post("/search/usa/", searchUSblogsController);
 
 export default router; 

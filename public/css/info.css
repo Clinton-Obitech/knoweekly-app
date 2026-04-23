@@ -9,20 +9,17 @@ main.info .contact form {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 3px;
 }
 
 main.info h2 {
     text-transform: capitalize;
     display: inline-block;
-    background-color: rgba(0, 0, 0, 0.1);
     align-self: flex-start;
-    padding: 0.4rem 1rem;
     color: black;
     border-radius: 5px;
-}
-
-main.info p {
-    margin-bottom: 1rem;
 }
 
 .contact form input {
@@ -52,11 +49,14 @@ main.info p {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    align-self: flex-start;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 3px;
 }
 
 .contact .email button {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
+    align-self: flex-start;
 }
 
 .contact .email button a {
@@ -68,6 +68,9 @@ main.info > section {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    border-radius: 3px;
 }
 
 header #navDropDown .links {
