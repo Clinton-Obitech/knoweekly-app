@@ -56,6 +56,7 @@ header {
     position: sticky;
     top: 3.9rem;
     background-color: white;
+    z-index: 20;
 }
 
 header.admin {
@@ -68,6 +69,13 @@ header.admin {
     margin: 0.5rem;
     border-radius: 4px;
     gap: 0.5rem;
+}
+
+h2#formsHeader {
+    display: none;
+    text-transform: uppercase;
+    padding: 0.5rem 0 0;
+    color: rgba(0, 100, 150);
 }
 
 footer {
@@ -93,8 +101,15 @@ main.home h1 {
     text-align: center;
 }
 
+#chooseCountry {
+    position: sticky;
+    top: 3.5rem;
+    padding-top: 0.5rem;
+    background-color: white;
+}
+
 main.home h3 {
-    margin: 1rem 1rem 0;
+    margin: 0 1rem 0;
 }
 
 nav.country-nav {
@@ -259,11 +274,15 @@ p.error {
 
 #searchFormPage {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 50% 30% 15%;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    padding: 0 1rem;
+    padding: 1rem 1rem 0.5rem;
+    text-align: center;
+    position: sticky;
+    top: 3rem;
+    background-color: white;
 }
 
 #searchFormPage a {
@@ -293,7 +312,7 @@ p.error {
 }
 
 #searchFormPage button {
-    padding: 0.4rem 0.7rem;
+    padding: 0.4rem 0;
     white-space: nowrap;
 }
 
@@ -323,6 +342,7 @@ p.error {
 
 #dateForm button {
     padding: 0.4rem 2rem;
+    width: 100%;
 }
 
 .home section.info {
@@ -355,6 +375,7 @@ p.error {
     top: 4rem;
     right: 1rem;
     padding: 1rem;
+    z-index: 50;
 }
 
 #navDropDown.showDropDown {

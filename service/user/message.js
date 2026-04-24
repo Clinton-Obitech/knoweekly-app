@@ -2,6 +2,13 @@ import supabase from "../../lib/supabase.js";
 
 export const sendMessage = async (body) => {
     const { fullname, email, message } = body;
+
+    if (!fullname || !email || !message) {
+        return {
+            success: false,
+            error: "fill all fields to continue"
+        }
+    }
     
     const { error} = await supabase
     .from("contact_message")

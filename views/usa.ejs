@@ -37,11 +37,13 @@
             <button type="submit">Go to date</button>
             </form>
 
+            <h2 id="formsHeader"><%= locals.blogs[0]?.category %></h2>
+
         </div>
 
         <section>
             <% if (locals.blogs.length > 0) {%>
-                <h2><%= blogs[0].category %></h2>
+                <h2 id="artHeader"><%= blogs[0].category %></h2>
                 <% blogs.forEach(blog => { %>
                     <article>
                         <span class="date"><%= new Date(blog.date).toLocaleDateString('en-GB', { 

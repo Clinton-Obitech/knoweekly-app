@@ -36,11 +36,13 @@
             <button type="submit">Go to date</button>
         </form>
 
+        <h2 id="formsHeader"><%= locals.blogs[0]?.category %></h2>
+
         </div>
 
         <section class="blogs">
             <% if (locals.blogs.length > 0) {%>
-                <h2><%= !locals.all ? blogs[0].category : "All"%></h2>
+                <h2 id="artHeader"><%= !locals.all ? blogs[0].category : "All"%></h2>
                 <% blogs.forEach(blog => { %>
                     <h2><%= locals.all ? blog.category : null%></h2>
                     <article>

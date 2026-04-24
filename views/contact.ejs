@@ -31,11 +31,11 @@
                 <textarea name="message">message</textarea>
 
                 <button type="submit">send message</button>
-            </form>
 
-            <% if (locals.error) {%>
-                <p class="error"><%= error %></p>
+                 <% if (locals.error) {%>
+                <p class="errMessage"><%= error %></p>
             <% } %>
+            </form>
 
             <div id="feedback">
 
