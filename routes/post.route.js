@@ -4,7 +4,7 @@ import { createAdminController, loginAdminController, logoutAdmin } from "../con
 import { postBlogController, updateBlogController, deleteBlogController, manageByQueryController } from "../controllers/admin/blogs/controller.js";
 import { createInfoController, deleteInfoController, updateInfoController } from "../controllers/admin/site-info/controller.js";
 import { MessageController } from "../controllers/user/message/controller.js";
-import { searchUSblogsController } from "../controllers/searchBlogs/controller.js";
+import { searchAUblogsController, searchCAblogsController, searchUKblogsController, searchUSblogsController } from "../controllers/searchBlogs/controller.js";
 
 const router = express();
 
@@ -28,5 +28,9 @@ router.post("/update/site/info/:id", updateInfoController);
 router.post("/delete/site/info/:id/:category", deleteInfoController);
 
 router.post("/search/usa/", searchUSblogsController);
+router.post("/search/uk/", searchUKblogsController);
+router.post("/search/au/", searchAUblogsController);
+router.post("/search/ca/", searchCAblogsController);
+
 
 export default router; 

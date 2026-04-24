@@ -8,9 +8,9 @@
         <h1>united state of america</h1>
 
         <form id="searchFormPage" action="/search/usa" method="POST" onsubmit="disableSubmitButton()">
-            <a href="/usa/blog/politics">blogs</a>
             <input type="text" name="search" placeholder="Search..."/>
             <button type="submit">search keywords</button>
+            <a href="/usa/blog/politics">main</a>
         </form>
 
         <section>
@@ -42,6 +42,7 @@
 
     <script src="/js/script.js"></script>
     <script src="/js/script1.js"></script>
+    <script src="/js/post.js"></script>
     <script>
         document.getElementById("searchFormPage").addEventListener("submit", function() {
         document.querySelector("#searchFormPage > button").innerHTML = "loading...";

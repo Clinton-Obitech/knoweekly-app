@@ -73,6 +73,10 @@ main.info > section {
     border-radius: 3px;
 }
 
+main.info > section p {
+    text-align: left;
+}
+
 header #navDropDown .links {
     display: flex;
     flex-direction: column;

@@ -257,7 +257,7 @@ export const CAblog = async (req, res) => {
 
     res.render("ca.ejs", {
         blogs: caBlogs,
-        date: req.query.date
+        date: date
     });
     
 }
@@ -272,7 +272,7 @@ export const AUblog = async (req, res) => {
 
     res.render("au.ejs", {
         blogs: auBlogs,
-        date: req.query.date
+        date: date
     });
     
 }

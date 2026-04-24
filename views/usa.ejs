@@ -23,8 +23,8 @@
         <div class="public-blogs-forms">
 
         <form id="searchForm" action="/search/usa" method="POST" onsubmit="disableSearchSubmitButton()">
-            <input type="text" name="search" placeholder="Search..."/>
-            <button type="submit">search keywords</button>
+            <input type="text" name="search" placeholder="Enter Keywords..."/>
+            <button type="submit">search keyword</button>
         </form>
 
             <form id="dateForm" action="<%= locals.blogs.length > 0 ? '/usa/blog/' + locals.blogs[0].category : ''%>" 
@@ -68,6 +68,8 @@
     <%- include("partials/footer.ejs") %>
     <script src="/js/script.js"></script>
     <script src="/js/script1.js"></script>
+    <script src="/js/post.js"></script>
+    <script src="/js/public-header.js"></script>
     <script>
         document.getElementById("dateForm").addEventListener("submit", function() {
         document.querySelector("#dateForm > button").innerHTML = "loading...";
