@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/auth-header.ejs") %>
+    <h1>contact messages</h1>
+    <main class="contact-messages">
+
+        <% if (locals.messages) { %>
+            <h2>new messages</h2>
+            <% messages.forEach(msg => { %>
+
+                <ul>
+                    <li class="name"><%= msg.fullname %></li>
+
+                    <a href="/read/message/<%= msg.id %>">read</a>
+                </ul>
+
+            <%  }) %>
+            <% } else { %>
+                <P>no messages found</P>
+                <% } %>
+        
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

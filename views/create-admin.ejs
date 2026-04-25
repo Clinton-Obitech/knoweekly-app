@@ -21,13 +21,24 @@
 
         </form>
 
+        <div id="feedback">
+
         <% if (locals.message) {%>
-            <p class="message"><%= message %></p>
+            <section>
+            <%= message %><span>✅</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
         <% } %>
 
         <% if (locals.error) {%>
-            <p class="error"><%= error %></p>
+            <section>
+            <%= error %><span>❌</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
         <% } %>
+        </div>
     </main>
 
     <%- include("partials/footer.ejs") %>
@@ -40,5 +51,6 @@
     </script>
     <script src="/js/script"></script>
     <script src="/js/post.js"></script>
+    <script src="/js/feedback.js"></script>
 </body>
 </html>

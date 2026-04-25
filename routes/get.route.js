@@ -1,5 +1,5 @@
 import express from "express";
-import { About, AdminDashboard, AdminHome, AUblog, CAblog, Contact, CreateAdmin, CreateInfo, EditBlog, EditInfo, Home, LoginAdmin, ManageBlog, Policy, PostBlog, SearchAU, SearchCA, SearchUK, SearchUSA, SiteInfo, Terms, UKblog, USblog} from "../controllers/get.controller.js";
+import { About, AdminDashboard, AdminHome, AUblog, CAblog, Contact, ContactMessages, CreateAdmin, CreateInfo, EditBlog, EditInfo, Home, LoginAdmin, ManageBlog, Policy, PostBlog, ReadMessages, SearchAU, SearchCA, SearchUK, SearchUSA, SiteInfo, Terms, UKblog, USblog} from "../controllers/get.controller.js";
 import { verifyAdminToken } from "../middleware/admin.js";
 
 const router = express();
@@ -29,5 +29,8 @@ router.get("/edit/blog/:id", verifyAdminToken, EditBlog);
 router.get("/create/site/info", verifyAdminToken, CreateInfo);
 router.get("/site/info/:category", verifyAdminToken, SiteInfo);
 router.get("/edit/site/info/:id", verifyAdminToken, EditInfo);
+
+router.get("/contact/messages", verifyAdminToken, ContactMessages);
+router.get("/read/message/:id", verifyAdminToken, ReadMessages);
 
 export default router;

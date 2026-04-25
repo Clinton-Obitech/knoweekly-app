@@ -9,18 +9,13 @@ export const manageByQuery = async (body) => {
         .select("*")
         .eq("country", country)
         .eq("category", category)
-        .eq("date", date);
+        .eq("date", date)
 
         if (error) throw error
 
         if (data.length === 0) {
-            return {
-                success: false,
-            }
+            return { success: false }
         }
 
-        return {
-            success: true,
-            blogs: data
-        }
+        return { success: true, blogs: data }
 }

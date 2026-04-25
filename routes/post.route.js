@@ -3,16 +3,14 @@ import multer from "multer";
 import { createAdminController, loginAdminController, logoutAdmin } from "../controllers/admin/auth/controller.js";
 import { postBlogController, updateBlogController, deleteBlogController, manageByQueryController } from "../controllers/admin/blogs/controller.js";
 import { createInfoController, deleteInfoController, updateInfoController } from "../controllers/admin/site-info/controller.js";
-import { MessageController } from "../controllers/user/message/controller.js";
 import { searchAUblogsController, searchCAblogsController, searchUKblogsController, searchUSblogsController } from "../controllers/searchBlogs/controller.js";
+import { SendContactMessageController } from "../controllers/user/message/controller.js";
 
 const router = express();
 
 const storage = multer.memoryStorage();
 
 export const upload = multer({storage});
-
-router.post("/send/message", MessageController);
 
 router.post("/create/admin", createAdminController);
 router.post("/login/admin", loginAdminController);
@@ -32,5 +30,6 @@ router.post("/search/uk/", searchUKblogsController);
 router.post("/search/au/", searchAUblogsController);
 router.post("/search/ca/", searchCAblogsController);
 
+router.post("/send/message", SendContactMessageController);
 
 export default router; 

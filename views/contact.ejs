@@ -32,16 +32,21 @@
 
                 <button type="submit">send message</button>
 
-                 <% if (locals.error) {%>
-                <p class="errMessage"><%= error %></p>
-            <% } %>
             </form>
 
-            <div id="feedback">
+        <div id="feedback">
 
         <% if (locals.message) {%>
             <section>
-            <%= message %>
+            <%= message %><span>✅</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
+        <% } %>
+
+        <% if (locals.error) {%>
+            <section>
+            <%= error %><span>❌</span>
             <button onclick="closeFeedback()">ok</button>
             </section>
             <div class="overlay"></div>

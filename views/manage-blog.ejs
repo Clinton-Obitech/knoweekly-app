@@ -14,7 +14,7 @@
 
         <form action="/manage/query" method="POST" onsubmit="disableSubmitButton()">
             <select name="country">
-                <option>choose a country</option>
+                <option value="<%= locals.blogs?.length > 0 ? locals.blogs[0].country : '' %>"><%= locals.blogs?.length > 0 ? locals.blogs[0].country : 'choose a country' %></option>
                 <option value="usa">united states</option>
                 <option value="uk">united kingdom</option>
                 <option value="ca">canada</option>
@@ -22,7 +22,7 @@
             </select>
 
             <select name="category">
-                <option>choose a category</option>
+                <option value="<%= locals.blogs?.length > 0 ? locals.blogs[0].category : '' %>"><%= locals.blogs?.length > 0 ? locals.blogs[0].category : 'choose a category' %></option>
                 <option value="politics">politics</option>
                 <option value="finance">finance</option>
                 <option value="insurance">insurance</option>
@@ -40,7 +40,7 @@
         </form>
 
         <section class="blogs">
-            <% if (locals.blogs) {%>
+            <% if (locals.blogs?.length > 0) {%>
                 <h2><%= blogs[0].country %> blogs</h2>
                 <h2><%= blogs[0].category %></h2>
                 <div class="blog">
@@ -82,7 +82,15 @@
 
         <% if (locals.message) {%>
             <section>
-            <%= message %>
+            <%= message %><span>✅</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
+        <% } %>
+
+        <% if (locals.error) {%>
+            <section>
+            <%= error %><span>❌</span>
             <button onclick="closeFeedback()">ok</button>
             </section>
             <div class="overlay"></div>
@@ -95,19 +103,12 @@
     <script src="/js/script.js"></script>
     <script src="/js/script1.js"></script>
     <script src="/js/post.js"></script>
+    <script src="/js/feedback.js"></script>
     <script>
         document.querySelector("form").addEventListener("submit", function() {
             document.querySelector("form > button").innerHTML = "loading...";
         })
         
-        const button = document.querySelector("#feedback button");
-        button.addEventListener("click", function() {
-            document.getElementById("feedback").style.display = "none";
-        })
-
-        document.addEventListener("click", function() {
-            document.getElementById("feedback").style.display = "none";
-        })
     </script>
 </body>
 </html>

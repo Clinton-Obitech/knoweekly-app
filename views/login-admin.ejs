@@ -17,15 +17,26 @@
 
             <button type="submit">login</button>
 
-            <% if (locals.message) {%>
-            <p class="message"><%= message %></p>
-            <% } %>
-
-            <% if (locals.error) {%>
-            <p class="error"><%= error %></p>
-            <% } %>
-
         </form>
+
+        <div id="feedback">
+
+        <% if (locals.message) {%>
+            <section>
+            <%= message %><span>✅</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
+        <% } %>
+
+        <% if (locals.error) {%>
+            <section>
+            <%= error %><span>❌</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
+        <% } %>
+        </div>
     </main>
 
     <%- include("partials/footer.ejs") %>
@@ -38,5 +49,6 @@
     </script>
     <script src="/js/script.js"></script>
     <script src="/js/post.js"></script>
+    <script src="/js/feedback.js"></script>
 </body>
 </html>

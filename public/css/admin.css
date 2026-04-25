@@ -96,6 +96,17 @@ main.admin-dashboard .top {
     text-transform: capitalize;
 }
 
+.admin-dashboard nav form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-dashboard nav form button {
+    padding: 0.5rem 2rem;
+    text-align: center;
+}
+
 main.admin-post-blog {
     display: flex;
     flex-direction: column;
@@ -153,9 +164,10 @@ main.admin-post-blog {
 }
 
 .admin-post-blog form button {
-    align-items: flex-start;
+    align-self: flex-end;
     width: 50%;
     padding: 0.5rem;
+    margin-top: 1rem;
 }
 
 main.admin-manage-blogs {
@@ -238,6 +250,7 @@ main.admin-manage-blogs form select {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-align: left;
 }
 
 .admin-manage-blogs article span {
@@ -274,7 +287,7 @@ main.admin-manage-blogs form select {
 
 nav.admin-nav {
     display: flex;
-    padding: 0 1rem 0.5rem;
+    padding: 0.5rem 1rem 1rem;
     gap: 1rem;
 }
 
@@ -390,9 +403,10 @@ nav.admin-nav a {
 }
 
 .create-site-info form button {
-    align-items: flex-start;
+    align-self: flex-end;
     width: 50%;
     padding: 0.5rem;
+    margin-top: 1rem;
 }
 
 .create-site-info input::placeholder {
@@ -408,8 +422,9 @@ nav.admin-nav a {
 #feedback {
     position: absolute;
     top: 5rem;
-    width: 100%;
     padding: 0 2rem;
+    width: 100%;
+    margin: 0;
 }
 
 #feedback section {
@@ -418,8 +433,8 @@ nav.admin-nav a {
    padding: 2rem;
    border-radius: 5px;
    display: flex;
+   gap: 0.5rem;
    flex-direction: column;
-   gap: 1rem;
    text-transform: capitalize;
    box-shadow: 0px 0px 3px black;
    align-items: center;
@@ -427,8 +442,15 @@ nav.admin-nav a {
    z-index: 600;
 }
 
+#feedback section span {
+    font-size: 1.5rem;
+}
+
 #feedback section > button {
     padding: 0.5rem 1rem;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
 }
 
 .site-info-view > p {

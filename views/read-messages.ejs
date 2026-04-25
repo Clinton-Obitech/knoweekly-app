@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/auth-header.ejs") %>
+    <h1>read message</h1>
+    <main class="read-messages">
+
+        <% if (locals.message) { %>
+
+            <section>
+                <h3>from: <%= message.fullname %></h3>
+                <h3>email: <%= message.email %></h3>
+                <h2><%= message.message %></h2>
+            </section>
+            
+        <% } %>
+        
+    </main>
+    
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

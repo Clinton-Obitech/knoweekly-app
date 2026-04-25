@@ -48,14 +48,8 @@ export const deleteBlogController = async (req, res) => {
     const result = await deleteBlog(req.params);
 
     try {
-        if (!result.success) {
-            return res.render("manage-blog.ejs", {
-                message: result.message,
-                blogs: null
-            });
-        }
 
-        return res.render("manage-blog.ejs", {
+         return res.render("manage-blog.ejs", {
                 message: result.message,
                 blogs: result.blogs
             });
@@ -73,12 +67,11 @@ export const manageByQueryController = async (req, res) => {
     try {
 
         if (!result.success) {
-            return res.redirect(`/manage/blog`);
-        } else {
-            return res.render("manage-blog.ejs", {
-            blogs: result.blogs
-            })
+            return res.redirect("/manage/blog")
         }
+        return res.render("manage-blog.ejs", {
+            blogs: result.blogs,
+            })
 
     } catch (err) {
         console.error(err);

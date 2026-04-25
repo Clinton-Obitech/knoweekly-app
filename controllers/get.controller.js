@@ -1,5 +1,6 @@
 import { getAdmin } from "../lib/admin.js";
 import { queryUSABlogs, queryUKBlogs, queryCABlogs, queryAUBlogs} from "../lib/all-blogs.js";
+import { messages } from "../lib/messages.js";
 import { getSiteInfo } from "../lib/site-info.js";
 import supabase from "../lib/supabase.js";
 import jwt from "jsonwebtoken";
@@ -141,9 +142,7 @@ export const PostBlog = (req, res) => {
 }
 
 export const ManageBlog = (req, res) => {
-    res.render("manage-blog.ejs", {
-        blogs: null
-    })
+    res.render("manage-blog.ejs")
 }
 
 export const EditBlog = async (req, res) => {
@@ -197,7 +196,6 @@ export const USblog = async (req, res) => {
     const today = new Date().toISOString().split("T")[0];
     const date = req.query.date || today;
     const category = req.params.category;
-    console.log(req.body)
 
     const usaBlogs = await queryUSABlogs(category, date);
 
@@ -299,4 +297,43 @@ export const SiteInfo = async (req, res) => {
         error,
         message
     })
+}
+
+export const ContactMessages = async (req, res) => {
+
+    const result = await messages();
+
+    try {
+        if (!result) {
+            return res.render("contact-messages.ejs", {
+                messages: null
+            })
+        }
+        return res.render("contact-messages.ejs", {
+            messages: result
+        })
+    } catch (err) {
+        console.error
+    }
+}
+
+export const ReadMessages = async (req, res) => {
+
+    const messageId = req.params.id;
+
+    try {
+         const { data, error } = await supabase
+         .from("contact_messages")
+         .select("*")
+         .eq("id", messageId)
+         .single()
+
+         if (error) throw error
+
+        return res.render("read-messages.ejs", {
+            message: data
+        })
+    } catch (err) {
+        console.error
+    }
 }

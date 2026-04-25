@@ -38,13 +38,6 @@ export const deleteBlog = async (params) => {
 
         if (blogsError) throw blogsError
 
-        if (data.length === 0) {
-            return {
-                message: "all blogs deleted",
-                blogs: data
-            }
-        }
-
         return {
             message: "Blog deleted",
             blogs: data

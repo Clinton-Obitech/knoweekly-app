@@ -20,6 +20,7 @@
 
 {
     const button = document.querySelectorAll(".public-blogs article button");
+    const title = document.querySelectorAll(".public-blogs article h2");
     const content = document.querySelectorAll(".public-blogs article p");
     const blog = document.querySelectorAll(".public-blogs article");
     const image = document.querySelectorAll(".public-blogs article img");
@@ -30,6 +31,7 @@
             const c = content[index]
             const b = blog[index]
             const i = image[index]
+            const t = title[index]
 
             
                 if (c.classList.toggle("show")) {
@@ -39,6 +41,7 @@
                     b.style.border = "none";
                     i.style.borderRadius = "0";
                     i.style.height = "250px";
+                    t.style.display = "block";
         
                 } else {
                     btn.innerHTML = "continue reading";
@@ -49,6 +52,7 @@
                     b.style.borderStyle = "solid";
                     i.style.borderRadius = "5px";
                     i.style.height = "180px";
+                    t.style.display = "";
                 }
         })
     })

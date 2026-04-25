@@ -40,17 +40,21 @@
             <textarea name="information"><%= editInfo ? editInfo.information : "information..." %></textarea>
 
             <button type="submit"><%= editInfo ? "update" : "create" %></button>
-
-            <% if (locals.error) {%>
-            <p style="padding-left: 0;" class="error"><%= error %></p>
-            <% } %>
         </form>
 
         <div id="feedback">
 
         <% if (locals.message) {%>
             <section>
-            <%= message %>
+            <%= message %><span>✅</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
+        <% } %>
+
+        <% if (locals.error) {%>
+            <section>
+            <%= error %><span>❌</span>
             <button onclick="closeFeedback()">ok</button>
             </section>
             <div class="overlay"></div>
@@ -63,20 +67,11 @@
     <script src="/js/script.js"></script>
     <script src="/js/script1.js"></script>
     <script src="/js/post.js"></script>
+    <script src="/js/feedback.js"></script>
     <script>
         
         document.querySelector("form").addEventListener("submit", function() {
             document.querySelector("form > button").innerHTML = "loading...";
-        })
-
-        const button = document.querySelector("#feedback button");
-        button.addEventListener("click", function() {
-            document.getElementById("feedback").style.display = "none";
-        })
-
-        
-        document.addEventListener("click", function() {
-            document.getElementById("feedback").style.display = "none";
         })
 
     </script>
