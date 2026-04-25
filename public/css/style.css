@@ -90,9 +90,12 @@ h1 {
     border-radius: 3px;
 }
 
-main.home h1 {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 3rem;
+main.home > h1 {
+    background-image: url("/images/Hero.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 5rem;
     color: white;
     text-align: center;
 }
@@ -150,17 +153,19 @@ p.error {
 }
 
 .country-nav a {
-    border: 1.5px solid black;
+    box-shadow: 0px 0px 3px black;
     padding: 2rem;
     border-radius: 5px;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
+    color: white;
 }
 
 .public-blogs {
     display: flex;
     flex-direction: column;
+    padding: 0 0.5rem 0.5rem;
 }
 
 .public-blogs article h2 {
@@ -237,11 +242,30 @@ p.error {
     object-position: center;
 }
 
+.public-blogs .image {
+    height: 200px;
+    width: 100%;
+    position: relative;
+}
+
 .public-blogs h1 {
-    padding: 2rem;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 4.5rem 0;
+    background-color: transparent;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+
+}
+
+.public-blogs .image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .public-blogs .not-found {
@@ -382,3 +406,31 @@ p.error {
 #navDropDown.showDropDown {
     display: block;
 }
+
+nav.country-nav a.usa {
+    background-image: url("/images/United\ States.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+nav.country-nav a.uk {
+    background-image: url("/images/United\ kingdom.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} 
+
+nav.country-nav a.ca {
+    background-image: url("/images/Canada.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} 
+
+nav.country-nav a.au {
+    background-image: url("/images/Australia.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} 

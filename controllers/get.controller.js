@@ -205,7 +205,8 @@ export const USblog = async (req, res) => {
 
     res.render("usa.ejs", {
         blogs: usaBlogs,
-        date: date
+        date: date,
+        category: category
     });
     
 }
