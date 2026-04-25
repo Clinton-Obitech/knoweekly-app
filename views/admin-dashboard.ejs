@@ -20,9 +20,29 @@
             </form>
         </nav>
 
+        <div id="feedback">
+
+        <% if (locals.message) {%>
+            <section>
+            <%= message %><span>✅</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
+        <% } %>
+
+        <% if (locals.error) {%>
+            <section>
+            <%= error %><span>❌</span>
+            <button onclick="closeFeedback()">ok</button>
+            </section>
+            <div class="overlay"></div>
+        <% } %>
+        </div>
+
     </main>
     
     <%- include("partials/footer.ejs") %>
     <script src="/js/script1.js"></script>
+    <script src="/js/feedback.js"></script>
 </body>
 </html>

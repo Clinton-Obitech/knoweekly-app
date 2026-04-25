@@ -126,8 +126,12 @@ export const AdminDashboard = async (req, res) => {
 
     const admin = await getAdmin(req.admin.id);
 
+    const { message, error } = req.query;
+
     res.render("admin-dashboard.ejs", {
-        username: admin.username
+        username: admin.username,
+        message,
+        error
     })
 }
 
@@ -286,6 +290,13 @@ export const CreateInfo = (req, res) => {
 }
 
 export const SiteInfo = async (req, res) => {
+
+    const admin = await getAdmin(req.admin.id);
+
+    if (admin.role !== "alpha admin") {
+        return res.redirect("/admin/dashboard?error=not authorized")
+    }
+
     const category = req.params.category;
 
     const { error, message } = req.query;
@@ -300,6 +311,12 @@ export const SiteInfo = async (req, res) => {
 }
 
 export const ContactMessages = async (req, res) => {
+
+    const admin = await getAdmin(req.admin.id);
+
+    if (admin.role !== "alpha admin") {
+        return res.redirect("/admin/dashboard?error=not authorized")
+    }
 
     const result = await messages();
 
