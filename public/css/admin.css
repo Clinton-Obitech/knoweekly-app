@@ -448,9 +448,7 @@ nav.admin-nav a {
 
 #feedback section > button {
     padding: 0.5rem 1rem;
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    margin-top: 0.5rem;
 }
 
 .site-info-view > p {

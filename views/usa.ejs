@@ -5,10 +5,8 @@
     <%- include("partials/header.ejs") %>
 
     <main class="public-blogs usa">
-        <div class="image">
-            <img src="/images/usa/<%= category %>.png">
-            <h1><%= category %></h1>
-        </div>
+
+            <h1>united states of america</h1>
 
         <nav>
             <a href="/">home</a>
@@ -45,8 +43,8 @@
         </div>
 
         <section>
+            <h2 id="artHeader"><%= category %></h2>
             <% if (locals.blogs.length > 0) {%>
-                <h2 id="artHeader"><%= blogs[0].category %></h2>
                 <% blogs.forEach(blog => { %>
                     <article>
                         <span class="date"><%= new Date(blog.date).toLocaleDateString('en-GB', { 
