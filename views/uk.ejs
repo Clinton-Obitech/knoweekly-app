@@ -41,10 +41,9 @@
         </div>
 
         <section class="blogs">
+            <h2 id="artHeader"><%= category %></h2>
             <% if (locals.blogs.length > 0) {%>
-                <h2 id="artHeader"><%= !locals.all ? blogs[0].category : "All"%></h2>
                 <% blogs.forEach(blog => { %>
-                    <h2><%= locals.all ? blog.category : null%></h2>
                     <article>
                         <span class="date"><%= new Date(blog.date).toLocaleDateString('en-GB', { 
                             day: 'numeric',

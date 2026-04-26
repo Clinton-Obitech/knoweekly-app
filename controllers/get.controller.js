@@ -245,7 +245,8 @@ export const UKblog = async (req, res) => {
 
     res.render("uk.ejs", {
         blogs: ukBlogs,
-        date: date
+        date: date,
+        category: category
     });
     
 }
@@ -260,7 +261,8 @@ export const CAblog = async (req, res) => {
 
     res.render("ca.ejs", {
         blogs: caBlogs,
-        date: date
+        date: date,
+        category: category
     });
     
 }
@@ -275,7 +277,8 @@ export const AUblog = async (req, res) => {
 
     res.render("au.ejs", {
         blogs: auBlogs,
-        date: date
+        date: date,
+        category: category
     });
     
 }
