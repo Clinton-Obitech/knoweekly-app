@@ -9,6 +9,43 @@
         <div id="chooseCountry">
         <%- include("partials/country-nav.ejs") %>
         </div>
+
+        <section class="first">
+            <h2>our platform focuses on delivering high quality articles in</h2>
+            <ul>
+                <li>politics</li>
+                <li>finance</li>
+                <li>insurance</li>
+                <li>real estate</li>
+                <li>education</li>
+                <li>legal</li>
+                <li>health</li>
+                <li>technology</li>
+                <li>sport</li>
+            </ul>
+        </section>
+
+        <section class="second">
+            <h2>fresh content <br> every week</h2>
+            <h3>we operate a continuous content cycle</h3>
+            <ul>
+                <li>new articles are posted weekly</li>
+                <li>content are maintainrd for a limited time</li>
+                <li>older posts are automatically replaced to keep information current</li>
+            </ul>
+            <h3>this ensures you always read relevant and up-to-date insights, not outdated information</h3>
+        </section>
+
+        <section class="third">
+            <h2>why<br>choose<br>us?</h2>
+            <ul>
+                <li><span>🌎</span><br>global coverage (US, UK, AU, CA)</li>
+                <li><span>🧠</span><br>easy to understand content</li>
+                <li><span>⚡</span><br>regular updates</li>
+                <li><span>📊</span><br>wide range of categories</li>
+                <li><span>🔄</span><br>always fresh information</li>
+            </ul>
+        </section>
         
         <% if (locals.information.length > 0) { %>
             <% information.forEach(info => { %>

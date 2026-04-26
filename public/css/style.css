@@ -377,3 +377,79 @@ p.error {
 #navDropDown.showDropDown {
     display: block;
 }
+
+main.home section h2 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem 3rem;
+}
+
+main.home section {
+    margin-bottom: 3rem;
+}
+
+main.home .first ul {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+    padding: 1rem;
+    list-style-type: none;
+    justify-content: center;
+}
+
+main.home .first ul li {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    padding: 0.5rem 2rem;
+    box-shadow: 0px 0px 3px black;
+    border: 2px solid  rgba(0, 100, 150);
+    border-radius: 5px;
+}
+
+main.home .second ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    gap: 1rem;
+    text-transform: capitalize;
+    justify-content: center;
+    align-items: center;
+}
+
+main.home .second ul li {
+    text-align: center;
+    box-shadow: 0px 0px 3px black;
+    border: 2px solid  rgba(0, 100, 150);
+    padding: 0.5rem 3rem;
+    border-radius: 5px;
+}
+
+main.home .second h3 {
+    padding: 0 3rem;
+}
+
+main.home .third ul {
+    list-style-type: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+main.home .third ul span {
+    font-size: 2.5rem;
+    text-shadow: 0.5px 0.5px 1px black;
+}
+
+main.home .third ul li {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    padding: 0.5rem 1rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px black;
+    border: 2px solid  rgba(0, 100, 150);
+}
