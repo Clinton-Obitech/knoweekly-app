@@ -23,7 +23,7 @@
 
         <form id="searchForm" action="/search/au" method="POST" onsubmit="disableSearchSubmitButton()">
             <input type="text" name="search" placeholder="Enter Keywords..."/>
-            <button type="submit">search keyword</button>
+            <button type="submit">search</button>
         </form>
 
         <form id="dateForm" action="<%= locals.blogs.length > 0 ? '/au/blog/' + locals.blogs[0].category : ''%>" 
