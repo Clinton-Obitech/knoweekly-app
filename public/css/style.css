@@ -61,7 +61,6 @@ header {
 header.admin {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     color: whitesmoke;
     background-color: rgba(0, 100, 150);
     gap: 0.5rem;
@@ -262,7 +261,7 @@ p.error {
 
 #searchForm {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 60% 35%;
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
@@ -303,7 +302,7 @@ p.error {
 }
 
 #searchForm button {
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0;
     text-align: center;
 }
 
@@ -322,7 +321,7 @@ p.error {
 
 #dateForm {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 60% 35%;
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
@@ -338,7 +337,7 @@ p.error {
 }
 
 #dateForm button {
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0;
     width: 100%;
 }
 

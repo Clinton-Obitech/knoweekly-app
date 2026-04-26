@@ -340,6 +340,12 @@ export const ContactMessages = async (req, res) => {
 
 export const ReadMessages = async (req, res) => {
 
+    const admin = await getAdmin(req.admin.id);
+
+    if (admin.role !== "alpha admin") {
+        return res.redirect("/admin/dashboard?error=not authorized")
+    }
+
     const messageId = req.params.id;
 
     try {

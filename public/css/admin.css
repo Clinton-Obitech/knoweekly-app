@@ -105,6 +105,7 @@ main.admin-dashboard .top {
 .admin-dashboard nav form button {
     padding: 0.5rem 2rem;
     text-align: center;
+    width: 100%;
 }
 
 main.admin-post-blog {
