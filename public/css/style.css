@@ -450,7 +450,7 @@ main.home .third ul {
     flex-direction: column;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
-    margin: 0 2rem;
+    margin: 0 1rem;
     padding: 1rem;
     border-radius: 15px;
 }
