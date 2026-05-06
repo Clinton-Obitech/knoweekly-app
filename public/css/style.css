@@ -378,10 +378,10 @@ p.error {
 
 main.home section h2 {
     text-transform: uppercase;
-    font-size: 3rem;
+    font-size: 2.5rem;
     text-align: center;
     padding: 1rem 3rem;
-    color: #000;
+    color: rgba(0, 0, 0, 0.8);
 }
 
 main.home section {
@@ -391,7 +391,7 @@ main.home section {
 main.home .first ul {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     padding: 0 1rem 1rem;
     list-style-type: none;
     justify-content: center;
@@ -401,7 +401,26 @@ main.home .first ul {
 main.home .first ul li {
     font-size: 1.5rem;
     text-transform: capitalize;
-    color: rgba(0, 100, 150);
+    color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 0px 3px black;
+    padding: 2rem 1rem;
+    width: 70%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.home .first ul li i {
+    font-size: 2.5rem;
+}
+
+.home .first ul li span {
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 main.home .second {
