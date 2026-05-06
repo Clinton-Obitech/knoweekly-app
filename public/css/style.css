@@ -232,9 +232,64 @@ p.error {
     padding: 1rem 0;
 }
 
-.public-blogs h1 {
+.usa-text {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("/image/United-States.png");
+    background-position: top;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: serif;
     text-align: center;
-    padding: 2rem 1rem;
+    text-transform: capitalize;
+    margin: 1rem;
+}
+
+.au-text {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("/image/Australia.png");
+    background-position: top;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: serif;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 1rem;
+}
+
+.uk-text {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("/image/United\ kingdom.png");
+    background-position: top;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: serif;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 1rem;
+}
+
+.ca-text {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url("/image/Canada.png");
+    background-position: 0% 20%;
+    background-size: cover;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: serif;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 1rem;
 }
 
 .public-blogs .not-found {
