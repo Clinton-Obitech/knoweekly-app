@@ -103,11 +103,10 @@ main.home > h1 {
 }
 
 nav.country-nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     padding: 0.5rem 1rem 1rem 0.8rem;
-    overflow: auto;
-    scrollbar-width: none;
 }
 
 p.message {
@@ -152,7 +151,6 @@ p.error {
     text-align: center;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.8);
-    min-width: 200px;
 }
 
 .public-blogs {
