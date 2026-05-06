@@ -23,12 +23,12 @@
             <button type="submit">search</button>
         </form>
 
-            <form id="dateForm" action="<%= locals.blogs.length > 0 ? '/usa/blog/' + locals.blogs[0].category : ''%>" 
+            <form id="dateForm" action="<%= locals.blogs?.length > 0 ? '/usa/blog/' + locals.blogs[0].category : ''%>" 
             method="GET"
             onsubmit="disableDateSubmitButton()"
             >
             <input type="date" id="date" name="date" 
-            value="<%= locals.blogs.length > 0 ? locals.blogs[0].date : locals.date  %>" />
+            value="<%= locals.blogs?.length > 0 ? locals.blogs[0].date : locals.date  %>" />
 
             <button type="submit">Go to date</button>
             </form>

@@ -180,7 +180,7 @@ p.error {
     display: block;
 }
 
-.public-blogs article p {
+.public-blogs article > p {
     padding: 0.5rem 2rem 0.5rem 1rem;
     font-size: 1.2rem;
     text-align: left;
@@ -188,6 +188,7 @@ p.error {
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    white-space: pre-line;
 }
 
 .public-blogs article {
@@ -369,7 +370,7 @@ p.error {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.4rem 1rem 1rem;
+    padding: 0.4rem 0 1rem;
 }
 
 #dateForm {
@@ -504,14 +505,13 @@ main.home .third ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
     margin: 0 1rem;
     padding: 1rem;
     border-radius: 15px;
 }
 
 main.home .third ul span {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-shadow: 0.5px 0.5px 1px black;
 }
 
@@ -520,4 +520,7 @@ main.home .third ul li {
     text-transform: capitalize;
     color: white;
     margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    border-radius: 15px;
 }

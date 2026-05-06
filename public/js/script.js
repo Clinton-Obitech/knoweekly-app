@@ -22,6 +22,7 @@
     const button = document.querySelectorAll(".public-blogs article button");
     const title = document.querySelectorAll(".public-blogs article h2");
     const content = document.querySelectorAll(".public-blogs article p");
+    const contentnew = document.querySelectorAll(".public-blogs #content-box");
     const blog = document.querySelectorAll(".public-blogs article");
     const image = document.querySelectorAll(".public-blogs article img");
 
