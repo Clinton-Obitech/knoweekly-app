@@ -23,11 +23,10 @@
 
             <select name="category">
                 <option value="<%= locals.blogs?.length > 0 ? locals.blogs[0].category : '' %>"><%= locals.blogs?.length > 0 ? locals.blogs[0].category : 'choose a category' %></option>
-                <option value="politics">politics</option>
                 <option value="finance">finance</option>
                 <option value="insurance">insurance</option>
+                <option value="realestate">real estate</option>
                 <option value="technology">technology</option>
-                <option value="health">health</option>
             </select>
 
             <input type="date" id="manageDate" name="date" />
