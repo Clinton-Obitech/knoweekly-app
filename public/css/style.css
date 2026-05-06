@@ -380,7 +380,7 @@ main.home section h2 {
     text-transform: uppercase;
     font-size: 2.5rem;
     text-align: center;
-    padding: 1rem 3rem;
+    padding: 1rem 0;
     color: rgba(0, 0, 0, 0.8);
 }
 
@@ -404,7 +404,7 @@ main.home .first ul li {
     color: rgba(0, 0, 0, 0.8);
     box-shadow: 0px 0px 3px black;
     padding: 2rem 1rem;
-    width: 70%;
+    width: 90%;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -426,17 +426,21 @@ main.home .first ul li {
 main.home .second {
     display: flex;
     flex-direction: column;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem 1rem;
     border-radius: 5px;
-    gap: 1rem;
     text-transform: capitalize;
     justify-content: center;
     align-items: center;
-    color: rgba(0, 100, 150);
 }
 
 main.home .second h3 {
-    padding: 0 3rem;
+   font-weight: bold;
+   color: rgba(0, 0, 0, 0.8);
+   font-style: italic;
+}
+
+main.home .second h3 span {
+    color: darkred;
 }
 
 main.home .third ul {
@@ -445,6 +449,10 @@ main.home .third ul {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 0 2rem;
+    padding: 1rem 0;
+    border-radius: 15px;
 }
 
 main.home .third ul span {
@@ -455,6 +463,6 @@ main.home .third ul span {
 main.home .third ul li {
     font-size: 1.5rem;
     text-transform: capitalize;
-    color:  rgba(0, 100, 150);
+    color: white;
     margin-bottom: 1rem;
 }
